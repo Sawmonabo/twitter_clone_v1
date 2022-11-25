@@ -16,7 +16,7 @@ import TwiiterLogo from './twitter_clone_logo.svg'
 
 export const TwitterIcon = () => (
     <Icon>
-        <img src={TwiiterLogo} height={30} width={30}/>
+        <img src={TwiiterLogo} alt="" height={30} width={30}/>
     </Icon>
 )
 
