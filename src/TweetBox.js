@@ -1,6 +1,6 @@
 import { Avatar, Button } from "@mui/material";
 import React, { useState } from "react";
-import db from "./firebase";
+// import db from "./firebase";
 import "./TweetBox.css";
 
 function TweetBox() {
@@ -10,7 +10,7 @@ function TweetBox() {
   const sendTweet = (e) => {
     e.preventDefault();
 
-    db.collection("posts").add({
+    var post = {
       username: "happystark",
       displayName: "Jay Patel",
       avatar:
@@ -18,7 +18,7 @@ function TweetBox() {
       verified: true,
       text: tweetMessage,
       image: tweetImage,
-    });
+    };
 
     setTweetMessage("");
     setTweetImage("");
