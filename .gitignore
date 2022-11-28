@@ -4,8 +4,10 @@
 .idea
 
 # WunderGraph build output
-.wundergraph/cache
-.wundergraph/generated
+src/.wundergraph/cache
+src/.wundergraph/generated
+src/components/cache
+src/components/generated
 
 # dependencies
 node_modules
