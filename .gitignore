@@ -4,8 +4,12 @@
 .idea
 
 # WunderGraph build output
-.wundergraph/cache
 .wundergraph/generated
+.wundergraph/cache
+src/.wundergraph/cache
+src/.wundergraph/generated
+src/components/cache
+src/components/generated
 
 # dependencies
 node_modules
@@ -36,6 +40,7 @@ yarn-error.log*
 .env.development.local
 .env.test.local
 .env.production.local
+.env
 
 # vercel
 .vercel

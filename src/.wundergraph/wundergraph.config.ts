@@ -21,9 +21,10 @@ configureWunderGraphApplication({
 				...templates.typescript.all,
 				templates.typescript.operations,
 				templates.typescript.linkBuilder,
+        templates.typescript.client,
 			],
 			// create-react-app expects all code to be inside /src
-			// path: "../frontend/src/generated",
+			path: "../components/generated",
 		},
 	],
 	cors: {
