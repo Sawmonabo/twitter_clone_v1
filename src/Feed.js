@@ -5,6 +5,7 @@ import TweetBox from "./TweetBox";
 import { useQuery } from './lib/wundergraph';
 
 function Feed() {
+  const [tweets, setTweets] = useState([]);
 
   const posts = [{
     displayName : "Jay Irey",
@@ -20,20 +21,9 @@ function Feed() {
     enabled: true,
   });
 
-  if (!isLoading) {
-    console.log(data);
-  }
-
-  const [tweets, setTweets] = useState([]);
-
-  //console.log(data.tweets_findManytweets);
-
   useEffect(() => {
-    if (data) {
-      const actualData = data.tweets_findManytweets;
-      setTweets({ actualData });
-    }
-  }, []);
+    console.log(`tweets = ${tweets}`);
+  });
 
   return (
     <div className="feed">
@@ -41,7 +31,7 @@ function Feed() {
         <h2>Home</h2>
       </div>
       <TweetBox />
-      {posts.map((post) => (
+      {data?.tweets_findManytweets?.map((post) => (
         <Post
           displayName={post.displayName}
           username={post.username}
