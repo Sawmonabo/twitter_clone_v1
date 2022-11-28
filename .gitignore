@@ -4,6 +4,8 @@
 .idea
 
 # WunderGraph build output
+.wundergraph/generated
+.wundergraph/cache
 src/.wundergraph/cache
 src/.wundergraph/generated
 src/components/cache
