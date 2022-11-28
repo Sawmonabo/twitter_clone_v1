@@ -1,9 +1,0 @@
-{
-  tweets_findManytweets {
-    id
-    username
-    verified
-    text
-    date
-  }
-}
