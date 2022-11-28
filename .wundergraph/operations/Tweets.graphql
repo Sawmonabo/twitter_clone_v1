@@ -1,5 +1,5 @@
 {
-  db_findAllTweets {
+  tweets_findManytweets {
     id
     username
     verified

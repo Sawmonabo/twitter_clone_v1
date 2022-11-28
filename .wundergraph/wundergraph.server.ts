@@ -5,7 +5,14 @@ import type { InternalClient } from './generated/wundergraph.internal.client';
 
 export default configureWunderGraphServer<HooksConfig, InternalClient>(() => ({
 	hooks: {
-		queries: {},
+		queries: {
+      Tweets: {
+        getTweets: async ({ user, response, clientRequest }) => {
+          console.log('Something is happening in the hooks');
+          return response;
+        }
+      }
+    },
 		mutations: {},
 	},
 	graphqlServers: [

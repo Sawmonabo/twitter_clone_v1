@@ -4,7 +4,7 @@ import operations from './wundergraph.operations';
 
 const tweets = introspect.mongodb({
 	apiNamespace: 'tweets',
-	databaseURL: 'mongodb+srv://user:pass@cluster0.uvkwxgc.mongodb.net/twitter-clone',
+	databaseURL: 'mongodb+srv://user:pass@cluster0.uvkwxgc.mongodb.net/TweetsCollection',
 });
 
 // configureWunderGraph emits the configuration
