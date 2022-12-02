@@ -53,6 +53,50 @@
         },
         "internal": false,
         "postResolveTransformations": []
+      },
+      {
+        "content": "mutation addTweet($id: String!, $displayName: String!, $username: String!, $verified: Boolean!, $text: String!, $avatar: JSON!, $image: JSON, $date: DateTime!) {\n  createOnetweets: tweets_createOnetweets(\n    data: {id: $id, displayName: $displayName, username: $username, verified: $verified, text: $text, avatar: $avatar, image: $image, date: $date}\n  ) {\n    id\n    displayName\n    username\n    verified\n    text\n    avatar\n    image\n    date\n  }\n}",
+        "name": "addTweet",
+        "responseSchema": "{\"type\":\"object\",\"properties\":{\"data\":{\"type\":\"object\",\"properties\":{\"createOnetweets\":{\"type\":\"object\",\"properties\":{\"id\":{\"type\":\"string\"},\"displayName\":{\"type\":\"string\"},\"username\":{\"type\":\"string\"},\"verified\":{\"type\":\"boolean\"},\"text\":{\"type\":\"string\"},\"avatar\":{},\"image\":{},\"date\":{\"type\":\"string\"}},\"additionalProperties\":false,\"required\":[\"id\",\"displayName\",\"username\",\"verified\",\"text\",\"date\"]}},\"additionalProperties\":false}},\"additionalProperties\":false}",
+        "variablesSchema": "{\"type\":\"object\",\"properties\":{\"id\":{\"type\":\"string\"},\"displayName\":{\"type\":\"string\"},\"username\":{\"type\":\"string\"},\"verified\":{\"type\":\"boolean\"},\"text\":{\"type\":\"string\"},\"avatar\":{},\"image\":{},\"date\":{\"type\":\"string\"}},\"additionalProperties\":false,\"definitions\":{},\"required\":[\"id\",\"displayName\",\"username\",\"verified\",\"text\",\"avatar\",\"date\"]}",
+        "interpolationVariablesSchema": "{\"type\":\"object\",\"properties\":{\"id\":{\"type\":\"string\"},\"displayName\":{\"type\":\"string\"},\"username\":{\"type\":\"string\"},\"verified\":{\"type\":\"boolean\"},\"text\":{\"type\":\"string\"},\"avatar\":{},\"image\":{},\"date\":{\"type\":\"string\"}},\"additionalProperties\":false,\"definitions\":{},\"required\":[\"id\",\"displayName\",\"username\",\"verified\",\"text\",\"avatar\",\"date\"]}",
+        "operationType": 1,
+        "cacheConfig": {
+          "enable": false,
+          "maxAge": 0,
+          "public": false,
+          "staleWhileRevalidate": 0
+        },
+        "authenticationConfig": {
+          "authRequired": false
+        },
+        "authorizationConfig": {
+          "claims": [],
+          "roleConfig": {
+            "requireMatchAll": [],
+            "requireMatchAny": [],
+            "denyMatchAll": [],
+            "denyMatchAny": []
+          }
+        },
+        "hooksConfiguration": {
+          "preResolve": false,
+          "postResolve": false,
+          "mutatingPreResolve": false,
+          "mutatingPostResolve": false,
+          "mockResolve": {
+            "enable": false,
+            "subscriptionPollingIntervalMillis": 0
+          },
+          "httpTransportOnResponse": false,
+          "httpTransportOnRequest": false,
+          "customResolve": false
+        },
+        "variablesConfiguration": {
+          "injectVariables": []
+        },
+        "internal": false,
+        "postResolveTransformations": []
       }
     ],
     "engineConfiguration": {
@@ -2347,77 +2391,13 @@
           "environmentVariableName": "",
           "placeholderVariableName": "",
           "staticVariableContent": "http://localhost:3000"
-        },
-        {
-          "kind": 1,
-          "staticVariableContent": "",
-          "placeholderVariableName": "",
-          "environmentVariableDefaultValue": "",
-          "environmentVariableName": "WG_ALLOWED_ORIGIN"
         }
       ]
     },
     "authenticationConfig": {
       "cookieBased": {
-        "providers": [
-          {
-            "kind": 0,
-            "githubConfig": {
-              "clientId": {
-                "kind": 0,
-                "environmentVariableDefaultValue": "",
-                "environmentVariableName": "",
-                "placeholderVariableName": "",
-                "staticVariableContent": "demo"
-              },
-              "clientSecret": {
-                "kind": 0,
-                "environmentVariableDefaultValue": "",
-                "environmentVariableName": "",
-                "placeholderVariableName": "",
-                "staticVariableContent": "demo"
-              }
-            },
-            "id": "github"
-          },
-          {
-            "kind": 1,
-            "oidcConfig": {
-              "clientId": {
-                "kind": 1,
-                "staticVariableContent": "",
-                "placeholderVariableName": "",
-                "environmentVariableDefaultValue": "",
-                "environmentVariableName": "AUTH0_CLIENT_ID"
-              },
-              "clientSecret": {
-                "kind": 1,
-                "staticVariableContent": "",
-                "placeholderVariableName": "",
-                "environmentVariableDefaultValue": "",
-                "environmentVariableName": "AUTH0_CLIENT_SECRET"
-              },
-              "issuer": {
-                "kind": 1,
-                "staticVariableContent": "",
-                "placeholderVariableName": "",
-                "environmentVariableDefaultValue": "",
-                "environmentVariableName": "AUTH0_ISSUER"
-              },
-              "queryParameters": []
-            },
-            "id": "auth0"
-          }
-        ],
-        "authorizedRedirectUris": [
-          {
-            "kind": 0,
-            "environmentVariableDefaultValue": "",
-            "environmentVariableName": "",
-            "placeholderVariableName": "",
-            "staticVariableContent": "http://localhost:3003"
-          }
-        ],
+        "providers": [],
+        "authorizedRedirectUris": [],
         "authorizedRedirectUriRegexes": [],
         "blockKey": {
           "kind": 0,
@@ -2530,5 +2510,5 @@
       }
     }
   },
-  "dangerouslyEnableGraphQLEndpoint": true
+  "dangerouslyEnableGraphQLEndpoint": false
 }

@@ -10,33 +10,32 @@ import {
 	SubscriptionEventHandler,
 	FetchUserRequestOptions,
 } from "@wundergraph/sdk/client";
-import type { TweetsResponse, TweetsResponseData } from "./models";
+import type {
+	TweetsResponse,
+	TweetsResponseData,
+	addTweetResponse,
+	addTweetInput,
+	addTweetResponseData,
+} from "./models";
 
 export type UserRole = "admin" | "user";
 
 export const WUNDERGRAPH_S3_ENABLED = false;
-export const WUNDERGRAPH_AUTH_ENABLED = true;
+export const WUNDERGRAPH_AUTH_ENABLED = false;
 
 export type UploadConfig = UploadRequestOptions<never>;
 
-export enum AuthProviderId {
-	"github" = "github",
-	"auth0" = "auth0",
-}
-
-export interface AuthProvider {
-	id: AuthProviderId;
-	login: (redirectURI?: string) => void;
-}
-
 export const defaultClientConfig: ClientConfig = {
-	applicationHash: "2862cfa1",
+	applicationHash: "b1e4a6b0",
 	baseURL: "http://localhost:9991",
 	sdkVersion: "0.123.2",
 };
 
 export const operationMetadata: OperationMetadata = {
 	Tweets: {
+		requiresAuthentication: false,
+	},
+	addTweet: {
 		requiresAuthentication: false,
 	},
 };
@@ -98,7 +97,13 @@ export type Queries = {
 	};
 };
 
-export type Mutations = {};
+export type Mutations = {
+	addTweet: {
+		input: addTweetInput;
+		data: addTweetResponseData;
+		requiresAuthentication: false;
+	};
+};
 
 export type Subscriptions = {};
 
@@ -111,5 +116,4 @@ export type LiveQueries = {
 	};
 };
 
-export interface Operations
-	extends OperationsDefinition<Queries, Mutations, Subscriptions, UserRole, keyof typeof AuthProviderId> {}
+export interface Operations extends OperationsDefinition<Queries, Mutations, Subscriptions, UserRole> {}

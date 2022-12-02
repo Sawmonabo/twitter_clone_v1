@@ -1,5 +1,3 @@
-"use strict";
-
 // wundergraph.config.ts
 var import_sdk3 = require("@wundergraph/sdk");
 
@@ -98,20 +96,6 @@ var tweets = import_sdk3.introspect.mongodb({
     allowedOrigins: process.env.NODE_ENV === "production" ? [
       "http://localhost:3000"
     ] : ["http://localhost:3000", new import_sdk3.EnvironmentVariable("WG_ALLOWED_ORIGIN")]
-  },
-  authentication: {
-    cookieBased: {
-      providers: [
-        import_sdk3.authProviders.demo(),
-        import_sdk3.authProviders.openIdConnect({
-          id: "auth0",
-          issuer: new import_sdk3.EnvironmentVariable("AUTH0_ISSUER"),
-          clientId: new import_sdk3.EnvironmentVariable("AUTH0_CLIENT_ID"),
-          clientSecret: new import_sdk3.EnvironmentVariable("AUTH0_CLIENT_SECRET")
-        })
-      ],
-      authorizedRedirectUris: ["http://localhost:3003"]
-    }
   },
   dotGraphQLConfig: {
     hasDotWunderGraphDirectory: false
