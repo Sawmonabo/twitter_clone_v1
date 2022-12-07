@@ -4,18 +4,63 @@
 import { JSONSchema7 } from "json-schema";
 
 interface Schema {
-	Tweets: {
+	AddTweet: {
 		input: JSONSchema7;
 		response: JSONSchema7;
 	};
-	addTweet: {
+	GetTweets: {
 		input: JSONSchema7;
 		response: JSONSchema7;
 	};
 }
 
 const jsonSchema: Schema = {
-	Tweets: {
+	AddTweet: {
+		input: {
+			type: "object",
+			properties: {
+				id: { type: "string" },
+				displayName: { type: "string" },
+				username: { type: "string" },
+				verified: { type: "boolean" },
+				text: { type: "string" },
+				avatar: {},
+				image: {},
+				date: { type: "string" },
+			},
+			additionalProperties: false,
+			definitions: {},
+			required: ["id", "displayName", "username", "verified", "text", "date"],
+		},
+		response: {
+			type: "object",
+			properties: {
+				data: {
+					type: "object",
+					properties: {
+						tweets_createOnetweets: {
+							type: "object",
+							properties: {
+								id: { type: "string" },
+								displayName: { type: "string" },
+								username: { type: "string" },
+								verified: { type: "boolean" },
+								text: { type: "string" },
+								avatar: {},
+								image: {},
+								date: { type: "string" },
+							},
+							additionalProperties: false,
+							required: ["id", "displayName", "username", "verified", "text", "date"],
+						},
+					},
+					additionalProperties: false,
+				},
+			},
+			additionalProperties: false,
+		},
+	},
+	GetTweets: {
 		input: { type: "object", properties: {}, additionalProperties: false, definitions: {} },
 		response: {
 			type: "object",
@@ -44,51 +89,6 @@ const jsonSchema: Schema = {
 					},
 					additionalProperties: false,
 					required: ["tweets_findManytweets"],
-				},
-			},
-			additionalProperties: false,
-		},
-	},
-	addTweet: {
-		input: {
-			type: "object",
-			properties: {
-				id: { type: "string" },
-				displayName: { type: "string" },
-				username: { type: "string" },
-				verified: { type: "boolean" },
-				text: { type: "string" },
-				avatar: {},
-				image: {},
-				date: { type: "string" },
-			},
-			additionalProperties: false,
-			definitions: {},
-			required: ["id", "displayName", "username", "verified", "text", "avatar", "date"],
-		},
-		response: {
-			type: "object",
-			properties: {
-				data: {
-					type: "object",
-					properties: {
-						createOnetweets: {
-							type: "object",
-							properties: {
-								id: { type: "string" },
-								displayName: { type: "string" },
-								username: { type: "string" },
-								verified: { type: "boolean" },
-								text: { type: "string" },
-								avatar: {},
-								image: {},
-								date: { type: "string" },
-							},
-							additionalProperties: false,
-							required: ["id", "displayName", "username", "verified", "text", "date"],
-						},
-					},
-					additionalProperties: false,
 				},
 			},
 			additionalProperties: false,

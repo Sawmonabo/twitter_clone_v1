@@ -11,11 +11,11 @@ import {
 	FetchUserRequestOptions,
 } from "@wundergraph/sdk/client";
 import type {
-	TweetsResponse,
-	TweetsResponseData,
-	addTweetResponse,
-	addTweetInput,
-	addTweetResponseData,
+	AddTweetResponse,
+	AddTweetInput,
+	AddTweetResponseData,
+	GetTweetsResponse,
+	GetTweetsResponseData,
 } from "./models";
 
 export type UserRole = "admin" | "user";
@@ -26,16 +26,16 @@ export const WUNDERGRAPH_AUTH_ENABLED = false;
 export type UploadConfig = UploadRequestOptions<never>;
 
 export const defaultClientConfig: ClientConfig = {
-	applicationHash: "b1e4a6b0",
+	applicationHash: "756ed680",
 	baseURL: "http://localhost:9991",
 	sdkVersion: "0.123.2",
 };
 
 export const operationMetadata: OperationMetadata = {
-	Tweets: {
+	AddTweet: {
 		requiresAuthentication: false,
 	},
-	addTweet: {
+	GetTweets: {
 		requiresAuthentication: false,
 	},
 };
@@ -89,18 +89,18 @@ export const createClient = (config?: Partial<Omit<ClientConfig, PrivateConfigPr
 };
 
 export type Queries = {
-	Tweets: {
+	GetTweets: {
 		input?: undefined;
-		data: TweetsResponseData;
+		data: GetTweetsResponseData;
 		requiresAuthentication: false;
 		liveQuery: boolean;
 	};
 };
 
 export type Mutations = {
-	addTweet: {
-		input: addTweetInput;
-		data: addTweetResponseData;
+	AddTweet: {
+		input: AddTweetInput;
+		data: AddTweetResponseData;
 		requiresAuthentication: false;
 	};
 };
@@ -108,9 +108,9 @@ export type Mutations = {
 export type Subscriptions = {};
 
 export type LiveQueries = {
-	Tweets: {
+	GetTweets: {
 		input?: undefined;
-		data: TweetsResponseData;
+		data: GetTweetsResponseData;
 		liveQuery: true;
 		requiresAuthentication: false;
 	};

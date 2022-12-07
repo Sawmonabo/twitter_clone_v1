@@ -2,33 +2,54 @@ import { Avatar, Button } from "@mui/material";
 import React, { useState } from "react";
 // import db from "./firebase";
 import "./TweetBox.css";
+import TwiiterLogo from './twitter_clone_logo.svg';
+import { useMutation } from './lib/wundergraph';
+// import { addTweetResponseData } from './components/generated/models';
 
 function TweetBox() {
   const [tweetMessage, setTweetMessage] = useState("");
   const [tweetImage, setTweetImage] = useState("");
 
-  const sendTweet = (e) => {
-    e.preventDefault();
-
-    var post = {
-      username: "happystark",
+  const sendTweet = () => {
+    console.log(tweetMessage);
+    trigger({
+      id: 'dsfsddsfsdgdsgdsg',
       displayName: "Jay Patel",
-      avatar:
-        "https://scontent-bom1-1.xx.fbcdn.net/v/t1.0-1/c0.33.200.200a/p200x200/51099653_766820610355014_8315780769297465344_o.jpg?_nc_cat=101&_nc_sid=7206a8&_nc_ohc=c1qBHkwAgVsAX8KynKU&_nc_ht=scontent-bom1-1.xx&oh=340b05bea693dd1671296e0c2d004bb3&oe=5F84CA62",
+      username: "happystark",
       verified: true,
       text: tweetMessage,
-      image: tweetImage,
-    };
+      avatar: null,
+      image: null,
+      date: "12/12/1996"
+    });
+    // e.preventDefault();
 
     setTweetMessage("");
     setTweetImage("");
   };
 
+  var post = {
+    id: 'dsfsddsfsdgdsgdsg',
+    displayName: "Jay Patel",
+    username: "happystark",
+    verified: true,
+    text: tweetMessage,
+    avatar: null,
+    image: null,
+    date: "12/12/1996"
+  };
+
+
+  const { trigger } = useMutation({
+      operationName: 'addTweet',
+      requiresAuthentication: false
+  });
+
   return (
     <div className="tweetBox">
       <form>
         <div className="tweetBox__input">
-          <Avatar src="https://scontent-bom1-1.xx.fbcdn.net/v/t1.0-1/c0.33.200.200a/p200x200/51099653_766820610355014_8315780769297465344_o.jpg?_nc_cat=101&_nc_sid=7206a8&_nc_ohc=c1qBHkwAgVsAX8KynKU&_nc_ht=scontent-bom1-1.xx&oh=340b05bea693dd1671296e0c2d004bb3&oe=5F84CA62" />
+          <Avatar src="./twitter_clone_logo.svg" />
           <input
             value={tweetMessage}
             onChange={(e) => setTweetMessage(e.target.value)}

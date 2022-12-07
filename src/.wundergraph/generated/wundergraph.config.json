@@ -7,8 +7,52 @@
     "enableGraphqlEndpoint": false,
     "operations": [
       {
-        "content": "query Tweets {\n  tweets_findManytweets {\n    id\n    displayName\n    username\n    verified\n    text\n    avatar\n    image\n    date\n  }\n}",
-        "name": "Tweets",
+        "content": "mutation AddTweet($id: String!, $displayName: String!, $username: String!, $verified: Boolean!, $text: String!, $avatar: JSON, $image: JSON, $date: DateTime!) {\n  tweets_createOnetweets(\n    data: {id: $id, displayName: $displayName, username: $username, verified: $verified, text: $text, avatar: $avatar, image: $image, date: $date}\n  ) {\n    id\n    displayName\n    username\n    verified\n    text\n    avatar\n    image\n    date\n  }\n}",
+        "name": "AddTweet",
+        "responseSchema": "{\"type\":\"object\",\"properties\":{\"data\":{\"type\":\"object\",\"properties\":{\"tweets_createOnetweets\":{\"type\":\"object\",\"properties\":{\"id\":{\"type\":\"string\"},\"displayName\":{\"type\":\"string\"},\"username\":{\"type\":\"string\"},\"verified\":{\"type\":\"boolean\"},\"text\":{\"type\":\"string\"},\"avatar\":{},\"image\":{},\"date\":{\"type\":\"string\"}},\"additionalProperties\":false,\"required\":[\"id\",\"displayName\",\"username\",\"verified\",\"text\",\"date\"]}},\"additionalProperties\":false}},\"additionalProperties\":false}",
+        "variablesSchema": "{\"type\":\"object\",\"properties\":{\"id\":{\"type\":\"string\"},\"displayName\":{\"type\":\"string\"},\"username\":{\"type\":\"string\"},\"verified\":{\"type\":\"boolean\"},\"text\":{\"type\":\"string\"},\"avatar\":{},\"image\":{},\"date\":{\"type\":\"string\"}},\"additionalProperties\":false,\"definitions\":{},\"required\":[\"id\",\"displayName\",\"username\",\"verified\",\"text\",\"date\"]}",
+        "interpolationVariablesSchema": "{\"type\":\"object\",\"properties\":{\"id\":{\"type\":\"string\"},\"displayName\":{\"type\":\"string\"},\"username\":{\"type\":\"string\"},\"verified\":{\"type\":\"boolean\"},\"text\":{\"type\":\"string\"},\"avatar\":{},\"image\":{},\"date\":{\"type\":\"string\"}},\"additionalProperties\":false,\"definitions\":{},\"required\":[\"id\",\"displayName\",\"username\",\"verified\",\"text\",\"date\"]}",
+        "operationType": 1,
+        "cacheConfig": {
+          "enable": false,
+          "maxAge": 0,
+          "public": false,
+          "staleWhileRevalidate": 0
+        },
+        "authenticationConfig": {
+          "authRequired": false
+        },
+        "authorizationConfig": {
+          "claims": [],
+          "roleConfig": {
+            "requireMatchAll": [],
+            "requireMatchAny": [],
+            "denyMatchAll": [],
+            "denyMatchAny": []
+          }
+        },
+        "hooksConfiguration": {
+          "preResolve": false,
+          "postResolve": false,
+          "mutatingPreResolve": false,
+          "mutatingPostResolve": false,
+          "mockResolve": {
+            "enable": false,
+            "subscriptionPollingIntervalMillis": 0
+          },
+          "httpTransportOnResponse": false,
+          "httpTransportOnRequest": false,
+          "customResolve": false
+        },
+        "variablesConfiguration": {
+          "injectVariables": []
+        },
+        "internal": false,
+        "postResolveTransformations": []
+      },
+      {
+        "content": "query GetTweets {\n  tweets_findManytweets {\n    id\n    displayName\n    username\n    verified\n    text\n    avatar\n    image\n    date\n  }\n}",
+        "name": "GetTweets",
         "responseSchema": "{\"type\":\"object\",\"properties\":{\"data\":{\"type\":\"object\",\"properties\":{\"tweets_findManytweets\":{\"type\":\"array\",\"items\":{\"type\":\"object\",\"properties\":{\"id\":{\"type\":\"string\"},\"displayName\":{\"type\":\"string\"},\"username\":{\"type\":\"string\"},\"verified\":{\"type\":\"boolean\"},\"text\":{\"type\":\"string\"},\"avatar\":{},\"image\":{},\"date\":{\"type\":\"string\"}},\"additionalProperties\":false,\"required\":[\"id\",\"displayName\",\"username\",\"verified\",\"text\",\"date\"]}}},\"additionalProperties\":false,\"required\":[\"tweets_findManytweets\"]}},\"additionalProperties\":false}",
         "variablesSchema": "{\"type\":\"object\",\"properties\":{},\"additionalProperties\":false,\"definitions\":{}}",
         "interpolationVariablesSchema": "{\"type\":\"object\",\"properties\":{},\"additionalProperties\":false,\"definitions\":{}}",
@@ -34,50 +78,6 @@
         "liveQueryConfig": {
           "enable": true,
           "pollingIntervalSeconds": 1
-        },
-        "hooksConfiguration": {
-          "preResolve": false,
-          "postResolve": false,
-          "mutatingPreResolve": false,
-          "mutatingPostResolve": false,
-          "mockResolve": {
-            "enable": false,
-            "subscriptionPollingIntervalMillis": 0
-          },
-          "httpTransportOnResponse": false,
-          "httpTransportOnRequest": false,
-          "customResolve": false
-        },
-        "variablesConfiguration": {
-          "injectVariables": []
-        },
-        "internal": false,
-        "postResolveTransformations": []
-      },
-      {
-        "content": "mutation addTweet($id: String!, $displayName: String!, $username: String!, $verified: Boolean!, $text: String!, $avatar: JSON!, $image: JSON, $date: DateTime!) {\n  createOnetweets: tweets_createOnetweets(\n    data: {id: $id, displayName: $displayName, username: $username, verified: $verified, text: $text, avatar: $avatar, image: $image, date: $date}\n  ) {\n    id\n    displayName\n    username\n    verified\n    text\n    avatar\n    image\n    date\n  }\n}",
-        "name": "addTweet",
-        "responseSchema": "{\"type\":\"object\",\"properties\":{\"data\":{\"type\":\"object\",\"properties\":{\"createOnetweets\":{\"type\":\"object\",\"properties\":{\"id\":{\"type\":\"string\"},\"displayName\":{\"type\":\"string\"},\"username\":{\"type\":\"string\"},\"verified\":{\"type\":\"boolean\"},\"text\":{\"type\":\"string\"},\"avatar\":{},\"image\":{},\"date\":{\"type\":\"string\"}},\"additionalProperties\":false,\"required\":[\"id\",\"displayName\",\"username\",\"verified\",\"text\",\"date\"]}},\"additionalProperties\":false}},\"additionalProperties\":false}",
-        "variablesSchema": "{\"type\":\"object\",\"properties\":{\"id\":{\"type\":\"string\"},\"displayName\":{\"type\":\"string\"},\"username\":{\"type\":\"string\"},\"verified\":{\"type\":\"boolean\"},\"text\":{\"type\":\"string\"},\"avatar\":{},\"image\":{},\"date\":{\"type\":\"string\"}},\"additionalProperties\":false,\"definitions\":{},\"required\":[\"id\",\"displayName\",\"username\",\"verified\",\"text\",\"avatar\",\"date\"]}",
-        "interpolationVariablesSchema": "{\"type\":\"object\",\"properties\":{\"id\":{\"type\":\"string\"},\"displayName\":{\"type\":\"string\"},\"username\":{\"type\":\"string\"},\"verified\":{\"type\":\"boolean\"},\"text\":{\"type\":\"string\"},\"avatar\":{},\"image\":{},\"date\":{\"type\":\"string\"}},\"additionalProperties\":false,\"definitions\":{},\"required\":[\"id\",\"displayName\",\"username\",\"verified\",\"text\",\"avatar\",\"date\"]}",
-        "operationType": 1,
-        "cacheConfig": {
-          "enable": false,
-          "maxAge": 0,
-          "public": false,
-          "staleWhileRevalidate": 0
-        },
-        "authenticationConfig": {
-          "authRequired": false
-        },
-        "authorizationConfig": {
-          "claims": [],
-          "roleConfig": {
-            "requireMatchAll": [],
-            "requireMatchAny": [],
-            "denyMatchAll": [],
-            "denyMatchAny": []
-          }
         },
         "hooksConfiguration": {
           "preResolve": false,
@@ -2391,6 +2391,13 @@
           "environmentVariableName": "",
           "placeholderVariableName": "",
           "staticVariableContent": "http://localhost:3000"
+        },
+        {
+          "kind": 1,
+          "staticVariableContent": "",
+          "placeholderVariableName": "",
+          "environmentVariableDefaultValue": "",
+          "environmentVariableName": "WG_ALLOWED_ORIGIN"
         }
       ]
     },
@@ -2510,5 +2517,5 @@
       }
     }
   },
-  "dangerouslyEnableGraphQLEndpoint": false
+  "dangerouslyEnableGraphQLEndpoint": true
 }

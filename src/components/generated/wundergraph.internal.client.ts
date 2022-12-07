@@ -2,19 +2,19 @@
 
 import type { OperationArgsWithInput, InternalClient as BaseClient } from "@wundergraph/sdk";
 import {
-	TweetsResponse,
-	addTweetResponse,
-	addTweetInput,
-	InternaladdTweetInput,
-	InjectedaddTweetInput,
+	AddTweetResponse,
+	AddTweetInput,
+	InternalAddTweetInput,
+	InjectedAddTweetInput,
+	GetTweetsResponse,
 } from "./models";
 
 export interface Queries {
-	Tweets: () => Promise<TweetsResponse>;
+	GetTweets: () => Promise<GetTweetsResponse>;
 }
 
 export interface Mutations {
-	addTweet: (options: OperationArgsWithInput<addTweetInput>) => Promise<addTweetResponse>;
+	AddTweet: (options: OperationArgsWithInput<AddTweetInput>) => Promise<AddTweetResponse>;
 }
 
 export interface InternalClient extends BaseClient<Queries, Mutations> {}

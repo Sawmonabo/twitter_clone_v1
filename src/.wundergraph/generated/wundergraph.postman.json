@@ -12,13 +12,13 @@
       },
       "item": [
         {
-          "id": "Tweets",
-          "name": "Tweets",
+          "id": "GetTweets",
+          "name": "GetTweets",
           "request": {
             "url": {
               "path": [
                 "operations",
-                "Tweets"
+                "GetTweets"
               ],
               "host": [
                 "{{apiBaseUrl}}"
@@ -52,13 +52,13 @@
       },
       "item": [
         {
-          "id": "addTweet",
-          "name": "addTweet",
+          "id": "AddTweet",
+          "name": "AddTweet",
           "request": {
             "url": {
               "path": [
                 "operations",
-                "addTweet"
+                "AddTweet"
               ],
               "host": [
                 "{{apiBaseUrl}}"

@@ -11,5 +11,4 @@ export const {
   useUser,
   useFileUpload,
   useAuth,
-  queryKey,
 } = createHooks<Operations>(client)
