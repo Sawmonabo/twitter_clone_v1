@@ -4,12 +4,7 @@
 .idea
 
 # WunderGraph build output
-.wundergraph/generated
-.wundergraph/cache
-src/.wundergraph/cache
-src/.wundergraph/generated
-src/components/cache
-src/components/generated
+# removed because doesn't work
 
 # dependencies
 node_modules

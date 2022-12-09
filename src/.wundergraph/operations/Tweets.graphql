@@ -1,4 +1,4 @@
-{
+query Tweets{
   tweets_findManytweets {
     id
     displayName
