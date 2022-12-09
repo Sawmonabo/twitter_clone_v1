@@ -8,7 +8,7 @@ interface Schema {
 		input: JSONSchema7;
 		response: JSONSchema7;
 	};
-	GetTweets: {
+	Tweets: {
 		input: JSONSchema7;
 		response: JSONSchema7;
 	};
@@ -18,19 +18,26 @@ const jsonSchema: Schema = {
 	AddTweet: {
 		input: {
 			type: "object",
-			properties: {
-				id: { type: "string" },
-				displayName: { type: "string" },
-				username: { type: "string" },
-				verified: { type: "boolean" },
-				text: { type: "string" },
-				avatar: {},
-				image: {},
-				date: { type: "string" },
-			},
+			properties: { data: { $ref: "#/definitions/tweets_tweetsCreateInput" } },
 			additionalProperties: false,
-			definitions: {},
-			required: ["id", "displayName", "username", "verified", "text", "date"],
+			definitions: {
+				tweets_tweetsCreateInput: {
+					additionalProperties: false,
+					type: "object",
+					properties: {
+						id: { type: ["string", "null"] },
+						avatar: {},
+						date: { type: "string" },
+						displayName: { type: "string" },
+						image: {},
+						text: { type: "string" },
+						username: { type: "string" },
+						verified: { type: "boolean" },
+					},
+					required: ["date", "displayName", "text", "username", "verified"],
+				},
+			},
+			required: ["data"],
 		},
 		response: {
 			type: "object",
@@ -60,7 +67,7 @@ const jsonSchema: Schema = {
 			additionalProperties: false,
 		},
 	},
-	GetTweets: {
+	Tweets: {
 		input: { type: "object", properties: {}, additionalProperties: false, definitions: {} },
 		response: {
 			type: "object",

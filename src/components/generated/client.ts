@@ -14,8 +14,8 @@ import type {
 	AddTweetResponse,
 	AddTweetInput,
 	AddTweetResponseData,
-	GetTweetsResponse,
-	GetTweetsResponseData,
+	TweetsResponse,
+	TweetsResponseData,
 } from "./models";
 
 export type UserRole = "admin" | "user";
@@ -26,16 +26,16 @@ export const WUNDERGRAPH_AUTH_ENABLED = false;
 export type UploadConfig = UploadRequestOptions<never>;
 
 export const defaultClientConfig: ClientConfig = {
-	applicationHash: "756ed680",
+	applicationHash: "0870ef65",
 	baseURL: "http://localhost:9991",
-	sdkVersion: "0.123.2",
+	sdkVersion: "0.124.1",
 };
 
 export const operationMetadata: OperationMetadata = {
 	AddTweet: {
 		requiresAuthentication: false,
 	},
-	GetTweets: {
+	Tweets: {
 		requiresAuthentication: false,
 	},
 };
@@ -89,9 +89,9 @@ export const createClient = (config?: Partial<Omit<ClientConfig, PrivateConfigPr
 };
 
 export type Queries = {
-	GetTweets: {
+	Tweets: {
 		input?: undefined;
-		data: GetTweetsResponseData;
+		data: TweetsResponseData;
 		requiresAuthentication: false;
 		liveQuery: boolean;
 	};
@@ -108,9 +108,9 @@ export type Mutations = {
 export type Subscriptions = {};
 
 export type LiveQueries = {
-	GetTweets: {
+	Tweets: {
 		input?: undefined;
-		data: GetTweetsResponseData;
+		data: TweetsResponseData;
 		liveQuery: true;
 		requiresAuthentication: false;
 	};

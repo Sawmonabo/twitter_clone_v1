@@ -2,9 +2,9 @@ import { Avatar, Button } from "@mui/material";
 import React, { useState } from "react";
 // import db from "./firebase";
 import "./TweetBox.css";
-import TwiiterLogo from './twitter_clone_logo.svg';
+// import TwiiterLogo from './twitter_clone_logo.svg';
 import { useMutation } from './lib/wundergraph';
-// import { addTweetResponseData } from './components/generated/models';
+
 
 function TweetBox() {
   const [tweetMessage, setTweetMessage] = useState("");
@@ -12,15 +12,15 @@ function TweetBox() {
 
   const sendTweet = () => {
     console.log(tweetMessage);
-    trigger({
-      id: 'dsfsddsfsdgdsgdsg',
-      displayName: "Jay Patel",
-      username: "happystark",
-      verified: true,
-      text: tweetMessage,
-      avatar: null,
-      image: null,
-      date: "12/12/1996"
+    trigger({ data : {
+        displayName: "Jay Patel",
+        username: "happystark",
+        verified: true,
+        text: tweetMessage,
+        avatar: null,
+        image: null,
+        date: "2099-03-01T08:00:00Z"
+      }
     });
     // e.preventDefault();
 
@@ -28,20 +28,8 @@ function TweetBox() {
     setTweetImage("");
   };
 
-  var post = {
-    id: 'dsfsddsfsdgdsgdsg',
-    displayName: "Jay Patel",
-    username: "happystark",
-    verified: true,
-    text: tweetMessage,
-    avatar: null,
-    image: null,
-    date: "12/12/1996"
-  };
-
-
   const { trigger } = useMutation({
-      operationName: 'addTweet',
+      operationName: 'AddTweet',
       requiresAuthentication: false
   });
 

@@ -12,13 +12,13 @@
       },
       "item": [
         {
-          "id": "GetTweets",
-          "name": "GetTweets",
+          "id": "Tweets",
+          "name": "Tweets",
           "request": {
             "url": {
               "path": [
                 "operations",
-                "GetTweets"
+                "Tweets"
               ],
               "host": [
                 "{{apiBaseUrl}}"
@@ -69,62 +69,7 @@
             "method": "POST",
             "body": {
               "mode": "urlencoded",
-              "urlencoded": [
-                {
-                  "disabled": true,
-                  "description": {
-                    "content": "Type string, Optional",
-                    "type": "text/plain"
-                  },
-                  "key": "id",
-                  "value": ""
-                },
-                {
-                  "disabled": true,
-                  "description": {
-                    "content": "Type string, Optional",
-                    "type": "text/plain"
-                  },
-                  "key": "displayName",
-                  "value": ""
-                },
-                {
-                  "disabled": true,
-                  "description": {
-                    "content": "Type string, Optional",
-                    "type": "text/plain"
-                  },
-                  "key": "username",
-                  "value": ""
-                },
-                {
-                  "disabled": true,
-                  "description": {
-                    "content": "Type boolean, Optional",
-                    "type": "text/plain"
-                  },
-                  "key": "verified",
-                  "value": ""
-                },
-                {
-                  "disabled": true,
-                  "description": {
-                    "content": "Type string, Optional",
-                    "type": "text/plain"
-                  },
-                  "key": "text",
-                  "value": ""
-                },
-                {
-                  "disabled": true,
-                  "description": {
-                    "content": "Type string, Optional",
-                    "type": "text/plain"
-                  },
-                  "key": "date",
-                  "value": ""
-                }
-              ]
+              "urlencoded": []
             }
           },
           "response": [],

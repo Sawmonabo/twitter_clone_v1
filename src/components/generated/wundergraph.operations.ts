@@ -26,6 +26,6 @@ export interface OperationsConfiguration {
 	// the input config is the default config + the query/mutation/subscription extra config
 	custom?: {
 		AddTweet?: CustomizeMutation;
-		GetTweets?: CustomizeQuery;
+		Tweets?: CustomizeQuery;
 	};
 }

@@ -26,14 +26,7 @@ var import_graphql = require("graphql");
 var import_sdk = require("@wundergraph/sdk");
 var wundergraph_server_default = (0, import_sdk.configureWunderGraphServer)(() => ({
   hooks: {
-    queries: {
-      Tweets: {
-        getTweets: async ({ user, response, clientRequest }) => {
-          console.log("Something is happening in the hooks");
-          return response;
-        }
-      }
-    },
+    queries: {},
     mutations: {}
   },
   graphqlServers: [

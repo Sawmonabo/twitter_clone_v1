@@ -1,14 +1,13 @@
-mutation addTweet($id: String!, $displayName: String!, $username: String!, $verified: Boolean!, $text: String!, $avatar: JSON, $image: JSON, $date: DateTime!)
-{
-  tweets_createOnetweets(data: {id: $id, displayName: $displayName, username: $username, 
-      verified: $verified, text: $text, avatar: $avatar, image: $image, date: $date }) {
-    id
-    displayName
-    username
-    verified
-    text
-    avatar
-    image
-    date
-  }
+mutation AddTweet($data: tweets_tweetsCreateInput!) {
+    tweets_createOnetweets(data: $data) 
+    {
+        id
+        displayName
+        username
+        verified
+        text
+        avatar
+        image
+        date
+    }
 }

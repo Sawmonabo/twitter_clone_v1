@@ -6,14 +6,7 @@ var import_graphql = require("graphql");
 var import_sdk = require("@wundergraph/sdk");
 var wundergraph_server_default = (0, import_sdk.configureWunderGraphServer)(() => ({
   hooks: {
-    queries: {
-      Tweets: {
-        getTweets: async ({ user, response, clientRequest }) => {
-          console.log("Something is happening in the hooks");
-          return response;
-        }
-      }
-    },
+    queries: {},
     mutations: {}
   },
   graphqlServers: [
@@ -72,7 +65,10 @@ var wundergraph_operations_default = (0, import_sdk2.configureWunderGraphOperati
 // wundergraph.config.ts
 var tweets = import_sdk3.introspect.mongodb({
   apiNamespace: "tweets",
-  databaseURL: "mongodb+srv://user:pass@cluster0.uvkwxgc.mongodb.net/TweetsCollection"
+  databaseURL: "mongodb+srv://user:pass@cluster0.uvkwxgc.mongodb.net/TweetsCollection",
+  introspection: {
+    pollingIntervalSeconds: 5
+  }
 });
 (0, import_sdk3.configureWunderGraphApplication)({
   apis: [
