@@ -5,24 +5,10 @@ import TweetBox from "./TweetBox";
 import { useQuery } from './lib/wundergraph';
 
 function Feed() {
-  const [tweets, setTweets] = useState([]);
-
-  const posts = [{
-    displayName : "Jay Irey",
-    username : "canIgetAHooyah",
-    verified : true,
-    text : "I love big booty hoes",
-    avatar : null,
-    image : null
-  }];
-
-  const { data, error, isValidating, isLoading, mutate } = useQuery({
+  const tweets = useQuery({
     operationName: 'Tweets',
-    enabled: true,
-  });
-
-  useEffect(() => {
-    console.log(`tweets = ${tweets}`);
+    liveQuery: true,
+		requiresAuthentication: false,
   });
 
   return (
@@ -31,14 +17,14 @@ function Feed() {
         <h2>Home</h2>
       </div>
       <TweetBox/>
-      {data?.tweets_findManytweets?.map((post) => (
+      {tweets.data?.tweets_findManytweets?.map((tweet) => (
         <Post
-          displayName={post.displayName}
-          username={post.username}
-          verified={post.verified}
-          text={post.text}
-          avatar={post.avatar}
-          image={post.image}
+          displayName={tweet.displayName}
+          username={tweet.username}
+          verified={tweet.verified}
+          text={tweet.text}
+          avatar={tweet.avatar}
+          image={tweet.image}
         />
       ))}
     </div>
