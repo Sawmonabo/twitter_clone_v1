@@ -26,9 +26,9 @@ export const WUNDERGRAPH_AUTH_ENABLED = false;
 export type UploadConfig = UploadRequestOptions<never>;
 
 export const defaultClientConfig: ClientConfig = {
-	applicationHash: "0870ef65",
+	applicationHash: "58a428f1",
 	baseURL: "http://localhost:9991",
-	sdkVersion: "0.124.1",
+	sdkVersion: "0.123.2",
 };
 
 export const operationMetadata: OperationMetadata = {

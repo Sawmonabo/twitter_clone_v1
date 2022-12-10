@@ -10,6 +10,11 @@ function TweetBox() {
   const [tweetMessage, setTweetMessage] = useState("");
   const [tweetImage, setTweetImage] = useState("");
 
+  const { trigger } = useMutation({
+      operationName: 'AddTweet',
+      requiresAuthentication: false
+  });
+
   const sendTweet = () => {
     console.log(tweetMessage);
     trigger({ data : {
@@ -28,34 +33,27 @@ function TweetBox() {
     setTweetImage("");
   };
 
-  const { trigger } = useMutation({
-      operationName: 'AddTweet',
-      requiresAuthentication: false
-  });
-
   return (
     <div className="tweetBox">
-      <form>
-        <div className="tweetBox__input">
-          <Avatar src="./twitter_clone_logo.svg" />
-          <input
-            value={tweetMessage}
-            onChange={(e) => setTweetMessage(e.target.value)}
-            placeholder="What's happening?"
-            type="text"
-          />
-        </div>
+      <div className="tweetBox__input">
+        <Avatar src="./twitter_clone_logo.svg" />
         <input
-          placeholder="Optional: Enter image URL"
-          value={tweetImage}
-          onChange={(e) => setTweetImage(e.target.value)}
+          value={tweetMessage}
+          onChange={(textFieldContents) => setTweetMessage(textFieldContents.target.value)}
+          placeholder="What's happening?"
           type="text"
-          className="tweetBox__imageInput"
         />
-        <Button onClick={sendTweet} type="submit" className="tweetBox__button">
-          Tweet
-        </Button>
-      </form>
+      </div>
+      <input
+        placeholder="Optional: Enter image URL"
+        value={tweetImage}
+        onChange={(e) => setTweetImage(e.target.value)}
+        type="text"
+        className="tweetBox__imageInput"
+      />
+      <Button onClick={sendTweet} type="submit" className="tweetBox__button">
+        Tweet
+      </Button>
     </div>
   );
 }
