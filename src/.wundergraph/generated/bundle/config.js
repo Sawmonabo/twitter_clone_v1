@@ -96,6 +96,19 @@ var tweets = import_sdk3.introspect.mongodb({
   dotGraphQLConfig: {
     hasDotWunderGraphDirectory: false
   },
+  authentication: {
+    cookieBased: {
+      providers: [
+        import_sdk3.authProviders.openIdConnect({
+          id: "auth0",
+          issuer: new import_sdk3.EnvironmentVariable("AUTH0_ISSUER"),
+          clientId: new import_sdk3.EnvironmentVariable("AUTH0_CLIENT_ID"),
+          clientSecret: new import_sdk3.EnvironmentVariable("AUTH0_CLIENT_SECRET")
+        })
+      ],
+      authorizedRedirectUris: ["http://localhost:3000"]
+    }
+  },
   security: {
     enableGraphQLEndpoint: process.env.NODE_ENV !== "production" || process.env.GITPOD_WORKSPACE_ID !== void 0
   }

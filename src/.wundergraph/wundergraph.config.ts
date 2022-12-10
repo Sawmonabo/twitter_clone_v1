@@ -1,4 +1,11 @@
-import { configureWunderGraphApplication, cors, EnvironmentVariable, introspect, templates, authProviders } from '@wundergraph/sdk';
+import { 
+  authProviders, 
+  configureWunderGraphApplication, 
+  cors, 
+  EnvironmentVariable, 
+  introspect, 
+  templates
+} from '@wundergraph/sdk';
 import server from './wundergraph.server';
 import operations from './wundergraph.operations';
 
@@ -25,7 +32,7 @@ configureWunderGraphApplication({
 				...templates.typescript.all,
 				templates.typescript.operations,
 				templates.typescript.linkBuilder,
-        		templates.typescript.client,
+        templates.typescript.client,
 			],
 			// create-react-app expects all code to be inside /src
 			path: "../components/generated",
@@ -44,12 +51,19 @@ configureWunderGraphApplication({
 	dotGraphQLConfig: {
 		hasDotWunderGraphDirectory: false,
 	},
-	// authentication: {
-	// 	cookieBased: {
-	// 	  providers: [authProviders.demo()],
-	// 	  authorizedRedirectUris: ['http://localhost:3000'],
-	// 	},
-	//   },
+	authentication: {
+		cookieBased: {
+		  providers: [
+        authProviders.openIdConnect({
+					id: 'auth0',
+					issuer: new EnvironmentVariable('AUTH0_ISSUER'),
+					clientId: new EnvironmentVariable('AUTH0_CLIENT_ID'),
+					clientSecret: new EnvironmentVariable('AUTH0_CLIENT_SECRET')
+        })
+      ],
+		  authorizedRedirectUris: ['http://localhost:3000'],
+		},
+  },
 	security: {
 		enableGraphQLEndpoint: process.env.NODE_ENV !== 'production' || process.env.GITPOD_WORKSPACE_ID !== undefined,
 	},

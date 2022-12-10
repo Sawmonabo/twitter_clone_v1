@@ -21,14 +21,23 @@ import type {
 export type UserRole = "admin" | "user";
 
 export const WUNDERGRAPH_S3_ENABLED = false;
-export const WUNDERGRAPH_AUTH_ENABLED = false;
+export const WUNDERGRAPH_AUTH_ENABLED = true;
 
 export type UploadConfig = UploadRequestOptions<never>;
 
+export enum AuthProviderId {
+	"auth0" = "auth0",
+}
+
+export interface AuthProvider {
+	id: AuthProviderId;
+	login: (redirectURI?: string) => void;
+}
+
 export const defaultClientConfig: ClientConfig = {
-	applicationHash: "58a428f1",
+	applicationHash: "480c7afe",
 	baseURL: "http://localhost:9991",
-	sdkVersion: "0.123.2",
+	sdkVersion: "0.124.1",
 };
 
 export const operationMetadata: OperationMetadata = {
@@ -116,4 +125,5 @@ export type LiveQueries = {
 	};
 };
 
-export interface Operations extends OperationsDefinition<Queries, Mutations, Subscriptions, UserRole> {}
+export interface Operations
+	extends OperationsDefinition<Queries, Mutations, Subscriptions, UserRole, keyof typeof AuthProviderId> {}

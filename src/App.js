@@ -1,5 +1,5 @@
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
-import React from "react";
+import React, { useEffect, useState } from "react";
 import './App.css';
 
 import Feed from "./Feed";
@@ -9,15 +9,19 @@ import Widgets from "./Widgets";
 const queryClient = new QueryClient();
 
 function App() {
-  return (
-    <QueryClientProvider client={queryClient}>
-      <div className="app">
-        <Sidebar />
-        <Feed />
-        <Widgets />
-      </div>
-    </QueryClientProvider>
-  );
+  // TODO: change this to isLoggedIn in future
+  if (true)
+  {
+    return (
+      <QueryClientProvider client={queryClient}>
+        <div className="app">
+          <Sidebar />
+          <Feed />
+          <Widgets />
+        </div>
+      </QueryClientProvider>
+    );
+  }
 }
 
 export default App;
