@@ -5,6 +5,7 @@ import './App.css';
 import Feed from "./Feed";
 import Sidebar from "./Sidebar";
 import Widgets from "./Widgets";
+import Login from "./Login";
 
 const queryClient = new QueryClient();
 
@@ -21,6 +22,12 @@ function App() {
         </div>
       </QueryClientProvider>
     );
+  }
+  else
+  {
+    return (
+      <Login />
+    )
   }
 }
 

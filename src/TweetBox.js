@@ -16,18 +16,19 @@ function TweetBox() {
   });
 
   const sendTweet = () => {
-    console.log(tweetMessage);
-    trigger({ data : {
-        displayName: "Jay Patel",
-        username: "happystark",
-        verified: true,
-        text: tweetMessage,
-        avatar: null,
-        image: null,
-        date: "2099-03-01T08:00:00Z"
-      }
-    });
-    // e.preventDefault();
+    if (tweetMessage != "")
+    {
+      trigger({ data : {
+          displayName: "Jay Patel",
+          username: "happystark",
+          verified: true,
+          text: tweetMessage,
+          avatar: null,
+          image: null,
+          date: "2099-03-01T08:00:00Z"
+        }
+      });
+    }
 
     setTweetMessage("");
     setTweetImage("");
