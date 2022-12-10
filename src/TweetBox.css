@@ -5,8 +5,6 @@
   padding-right: 10px;
   flex-direction: column;
 }
-.tweetBox > form {
-}
 .tweetBox__input {
   display: flex;
   padding: 20px;
