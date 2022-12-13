@@ -1,0 +1,12 @@
+.login-button-container {
+    flex: 2;
+    background-color: var(--twitter-color) !important;
+    border: none !important;
+    color: white !important;
+    font-weight: 500 !important;
+    text-transform: inherit !important;
+    border-radius: 5px !important;
+    height: 25px !important;
+    margin-top: 20px !important;
+    margin-left: auto !important;
+  }

@@ -3,6 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "@auth0/auth0-react": "^1.12.0",
     "@emotion/react": "^11.10.5",
     "@emotion/styled": "^11.10.5",
     "@mui/icons-material": "^5.10.15",
@@ -14,11 +15,13 @@
     "@wundergraph/nextjs": "^0.6.1",
     "@wundergraph/sdk": "^0.124.1",
     "@wundergraph/swr": "^0.7.2",
+    "bootstrap": "^5.2.3",
     "graphql": "^16.3.0",
     "mui": "^0.0.1",
     "next": "^12.1.6",
     "react": "^18.0.0",
     "react-dom": "^18.2.0",
+    "react-router-dom": "^6.4.5",
     "react-scripts": "5.0.1",
     "react-twitter-embed": "^4.0.4",
     "web-vitals": "^2.1.4"

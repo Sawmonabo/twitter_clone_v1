@@ -1,17 +1,19 @@
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 import React, { useEffect, useState } from "react";
-import './App.css';
+import { BrowserRouter, Routes, Route } from "react-router-dom"
+import "bootstrap/dist/css/bootstrap.min.css"
 
+import './App.css';
 import Feed from "./Feed";
 import Sidebar from "./Sidebar";
 import Widgets from "./Widgets";
-import Login from "./Login";
+import Auth from './Auth';
 
 const queryClient = new QueryClient();
 
 function App() {
   // TODO: change this to isLoggedIn in future
-  if (true)
+  if (false)
   {
     return (
       <QueryClientProvider client={queryClient}>
@@ -25,8 +27,15 @@ function App() {
   }
   else
   {
+    // return (
+    //   <Auth />
+    // )
     return (
-      <Login />
+      <BrowserRouter>
+      <Routes>
+        <Route path="/" element={<Auth />} />
+      </Routes>
+    </BrowserRouter>
     )
   }
 }
