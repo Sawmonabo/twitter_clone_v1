@@ -5,7 +5,7 @@ const LoginButton = () => {
     const { login } = useAuth();
 
     return (
-      <button className="btn btn-primary" onClick={login('auth0')}>
+      <button className="btn btn-primary" onClick={() => { login('auth0'); }}>
           Sign In
       </button>
     )

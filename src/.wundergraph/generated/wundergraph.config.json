@@ -2440,7 +2440,7 @@
             "environmentVariableDefaultValue": "",
             "environmentVariableName": "",
             "placeholderVariableName": "",
-            "staticVariableContent": "http://localhost:3000"
+            "staticVariableContent": "http://localhost:3000/"
           }
         ],
         "authorizedRedirectUriRegexes": [],
