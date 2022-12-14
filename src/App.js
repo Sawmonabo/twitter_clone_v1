@@ -17,8 +17,12 @@ function App() {
   return (
     <QueryClientProvider client={queryClient}>
       <div className="app">
-        {user && <Home />}
-        {!user && <LoginButton />}
+        <div>
+          {!user && <Home />}
+        </div>
+        <div>
+          {user && <LoginButton />}
+        </div>
       </div>
     </QueryClientProvider>
   );
