@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import LoginButton from "./auth0_components/LoginButton";
+import { useAuth } from "./lib/wundergraph";
 import './Auth.css';
 
 
@@ -12,8 +13,10 @@ function Auth() {
     const changeAuthMode = () => {
       setAuthMode(authMode === "signin" ? "signup" : "signin")
     }
-  
-    if (authMode === "signin") {
+
+    const { login } = useAuth();  
+
+    if (false) {
       return (
         <div className="Auth-form-container">
           <form className="Auth-form">

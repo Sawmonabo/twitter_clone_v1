@@ -1,15 +1,13 @@
-import { useAuth0 } from '@auth0/auth0-react';
+import { useAuth } from "../lib/wundergraph";
 import './LoginButton.css'
 
 const LoginButton = () => {
-    const { loginWithRedirect, isAuthenticated } = useAuth0();
+    const { login } = useAuth();
 
     return (
-        !isAuthenticated && (
-            <button className="btn btn-primary" onClick={() => loginWithRedirect()}>
-                Sign In
-            </button>
-        )
+      <button className="btn btn-primary" onClick={login('auth0')}>
+          Sign In
+      </button>
     )
 }
 
