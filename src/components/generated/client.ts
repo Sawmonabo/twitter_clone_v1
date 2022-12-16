@@ -1,6 +1,7 @@
 import {
 	Client,
 	ClientConfig,
+	CreateClientConfig,
 	User,
 	UploadRequestOptions,
 	OperationMetadata,
@@ -35,9 +36,9 @@ export interface AuthProvider {
 }
 
 export const defaultClientConfig: ClientConfig = {
-	applicationHash: "f1acc80e",
+	applicationHash: "83a5056d",
 	baseURL: "http://localhost:9991",
-	sdkVersion: "0.124.1",
+	sdkVersion: "0.126.0",
 };
 
 export const operationMetadata: OperationMetadata = {
@@ -48,8 +49,6 @@ export const operationMetadata: OperationMetadata = {
 		requiresAuthentication: false,
 	},
 };
-
-type PrivateConfigProperties = "applicationHash" | "sdkVersion" | "operationMetadata";
 
 export class WunderGraphClient extends Client {
 	query<
@@ -84,12 +83,12 @@ export class WunderGraphClient extends Client {
 	public login(authProviderID: Operations["authProvider"], redirectURI?: string) {
 		return super.login(authProviderID, redirectURI);
 	}
-	public async fetchUser<TUser extends User = User<UserRole>>(options: FetchUserRequestOptions) {
+	public async fetchUser<TUser extends User = User<UserRole>>(options?: FetchUserRequestOptions) {
 		return super.fetchUser<TUser>(options);
 	}
 }
 
-export const createClient = (config?: Partial<Omit<ClientConfig, PrivateConfigProperties>>) => {
+export const createClient = (config?: CreateClientConfig) => {
 	return new WunderGraphClient({
 		...defaultClientConfig,
 		...config,

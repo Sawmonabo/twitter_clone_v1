@@ -2498,7 +2498,7 @@
           "kind": 1,
           "staticVariableContent": "",
           "placeholderVariableName": "",
-          "environmentVariableDefaultValue": "127.0.0.1",
+          "environmentVariableDefaultValue": "localhost",
           "environmentVariableName": "WG_NODE_HOST"
         },
         "port": {
@@ -2533,7 +2533,7 @@
           "kind": 1,
           "staticVariableContent": "",
           "placeholderVariableName": "",
-          "environmentVariableDefaultValue": "127.0.0.1",
+          "environmentVariableDefaultValue": "localhost",
           "environmentVariableName": "WG_SERVER_HOST"
         },
         "port": {
