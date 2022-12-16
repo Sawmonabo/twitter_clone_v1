@@ -1,9 +1,9 @@
 import { Avatar, Button } from "@mui/material";
 import React, { useState } from "react";
-// import db from "./firebase";
 import "./TweetBox.css";
 // import TwiiterLogo from './twitter_clone_logo.svg';
 import { useMutation } from './lib/wundergraph';
+import {userContext} from './user';
 
 
 function TweetBox() {
@@ -15,17 +15,19 @@ function TweetBox() {
       requiresAuthentication: false
   });
 
+  const user = React.useContext(userContext);  
+
   const sendTweet = () => {
     if (tweetMessage != "")
     {
       trigger({ data : {
-          displayName: "Jay Patel",
-          username: "happystark",
+          displayName: user.firstName,
+          username: user.firstName + "_" + user.lastName,
           verified: true,
           text: tweetMessage,
           avatar: null,
           image: null,
-          date: "2099-03-01T08:00:00Z"
+          date: new Date()
         }
       });
     }
