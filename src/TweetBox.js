@@ -17,7 +17,9 @@ function TweetBox() {
 
   const user = React.useContext(userContext);  
 
-  const sendTweet = () => {
+  const sendTweet = e => {
+    e.preventDefault();
+    
     if (tweetMessage != "")
     {
       trigger({ data : {
