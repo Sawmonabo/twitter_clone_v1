@@ -6,7 +6,8 @@
 }
 .post__body > img {
   border-radius: 20px;
-  width: 100%;
+  max-height: 250px;
+  width: auto;
 }
 .post__footer {
   display: flex;
