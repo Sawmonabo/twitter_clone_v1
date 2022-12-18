@@ -3,6 +3,7 @@
   align-items: flex-start;
   border-bottom: 1px solid var(--twitter-backgroung);
   padding-bottom: 5px;
+  max-width: 800px;
 }
 .post__body > img {
   border-radius: 20px;

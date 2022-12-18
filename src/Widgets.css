@@ -1,6 +1,7 @@
 .widgets {
   flex: 0.3;
   overflow-y: scroll;
+  min-width: fit-content;
 }
 .widgets::-webkit-scrollbar {
   display: none;
