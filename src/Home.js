@@ -5,7 +5,7 @@ import './Home.css';
 
 function Home({}) {
   return (
-    <div className="app">
+    <div className="home">
         <Sidebar />
         <Feed />
         <Widgets />

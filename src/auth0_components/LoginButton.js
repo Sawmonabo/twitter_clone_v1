@@ -1,4 +1,5 @@
 import { useAuth, useUser } from "../lib/wundergraph";
+import { Button } from "@mui/material";
 import './LoginButton.css'
 
 const LoginButton = () => {
@@ -9,9 +10,9 @@ const LoginButton = () => {
   console.log(isLoading);
   console.log(error);
   return (
-    <button className="login-button-container" onClick={() => { login('auth0'); }}>
+    <Button className="login-button-container" onClick={() => { login('auth0'); }}>
         Sign In
-    </button>
+    </Button>
   )
 }
 
