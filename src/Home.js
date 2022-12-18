@@ -1,9 +1,9 @@
 import Feed from "./Feed";
 import Sidebar from "./Sidebar";
 import Widgets from "./Widgets";
-import './App.css';
+import './Home.css';
 
-function Home({user}) {
+function Home({}) {
   return (
     <div className="app">
         <Sidebar />
