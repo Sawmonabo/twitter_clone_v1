@@ -269,9 +269,34 @@ input tweets_StringFilter {
   not: tweets_NestedStringFilter
 }
 
-input tweets_JsonNullableFilter {
-  equals: JSON
-  not: JSON
+input tweets_NestedStringNullableFilter {
+  equals: String
+  in: [String]
+  notIn: [String]
+  lt: String
+  lte: String
+  gt: String
+  gte: String
+  contains: String
+  startsWith: String
+  endsWith: String
+  not: tweets_NestedStringNullableFilter
+  isSet: Boolean
+}
+
+input tweets_StringNullableFilter {
+  equals: String
+  in: [String]
+  notIn: [String]
+  lt: String
+  lte: String
+  gt: String
+  gte: String
+  contains: String
+  startsWith: String
+  endsWith: String
+  mode: tweets_QueryMode
+  not: tweets_NestedStringNullableFilter
   isSet: Boolean
 }
 
@@ -312,10 +337,10 @@ input tweets_tweetsWhereInput {
   OR: [tweets_tweetsWhereInput]
   NOT: tweets_tweetsWhereInput
   id: tweets_StringFilter
-  avatar: tweets_JsonNullableFilter
+  avatar: tweets_StringNullableFilter
   date: tweets_DateTimeFilter
   displayName: tweets_StringFilter
-  image: tweets_JsonNullableFilter
+  image: tweets_StringNullableFilter
   text: tweets_StringFilter
   username: tweets_StringFilter
   verified: tweets_BoolFilter
@@ -354,10 +379,10 @@ enum tweets_TweetsScalarFieldEnum {
 
 type tweets_tweets {
   id: String!
-  avatar: JSON
+  avatar: String
   date: DateTime!
   displayName: String!
-  image: JSON
+  image: String
   text: String!
   username: String!
   verified: Boolean!
@@ -379,8 +404,10 @@ type tweets_TweetsCountAggregateOutputType {
 
 type tweets_TweetsMinAggregateOutputType {
   id: String
+  avatar: String
   date: DateTime
   displayName: String
+  image: String
   text: String
   username: String
   verified: Boolean
@@ -389,8 +416,10 @@ type tweets_TweetsMinAggregateOutputType {
 
 type tweets_TweetsMaxAggregateOutputType {
   id: String
+  avatar: String
   date: DateTime
   displayName: String
+  image: String
   text: String
   username: String
   verified: Boolean
@@ -417,8 +446,10 @@ input tweets_tweetsCountOrderByAggregateInput {
 
 input tweets_tweetsMaxOrderByAggregateInput {
   id: tweets_SortOrder
+  avatar: tweets_SortOrder
   date: tweets_SortOrder
   displayName: tweets_SortOrder
+  image: tweets_SortOrder
   text: tweets_SortOrder
   username: tweets_SortOrder
   verified: tweets_SortOrder
@@ -426,8 +457,10 @@ input tweets_tweetsMaxOrderByAggregateInput {
 
 input tweets_tweetsMinOrderByAggregateInput {
   id: tweets_SortOrder
+  avatar: tweets_SortOrder
   date: tweets_SortOrder
   displayName: tweets_SortOrder
+  image: tweets_SortOrder
   text: tweets_SortOrder
   username: tweets_SortOrder
   verified: tweets_SortOrder
@@ -505,18 +538,40 @@ input tweets_NestedIntNullableFilter {
   isSet: Boolean
 }
 
-input tweets_NestedJsonNullableFilter {
-  equals: JSON
-  not: JSON
+input tweets_NestedStringNullableWithAggregatesFilter {
+  equals: String
+  in: [String]
+  notIn: [String]
+  lt: String
+  lte: String
+  gt: String
+  gte: String
+  contains: String
+  startsWith: String
+  endsWith: String
+  not: tweets_NestedStringNullableWithAggregatesFilter
+  _count: tweets_NestedIntNullableFilter
+  _min: tweets_NestedStringNullableFilter
+  _max: tweets_NestedStringNullableFilter
   isSet: Boolean
 }
 
-input tweets_JsonNullableWithAggregatesFilter {
-  equals: JSON
-  not: JSON
+input tweets_StringNullableWithAggregatesFilter {
+  equals: String
+  in: [String]
+  notIn: [String]
+  lt: String
+  lte: String
+  gt: String
+  gte: String
+  contains: String
+  startsWith: String
+  endsWith: String
+  mode: tweets_QueryMode
+  not: tweets_NestedStringNullableWithAggregatesFilter
   _count: tweets_NestedIntNullableFilter
-  _min: tweets_NestedJsonNullableFilter
-  _max: tweets_NestedJsonNullableFilter
+  _min: tweets_NestedStringNullableFilter
+  _max: tweets_NestedStringNullableFilter
   isSet: Boolean
 }
 
@@ -569,10 +624,10 @@ input tweets_tweetsScalarWhereWithAggregatesInput {
   OR: [tweets_tweetsScalarWhereWithAggregatesInput]
   NOT: tweets_tweetsScalarWhereWithAggregatesInput
   id: tweets_StringWithAggregatesFilter
-  avatar: tweets_JsonNullableWithAggregatesFilter
+  avatar: tweets_StringNullableWithAggregatesFilter
   date: tweets_DateTimeWithAggregatesFilter
   displayName: tweets_StringWithAggregatesFilter
-  image: tweets_JsonNullableWithAggregatesFilter
+  image: tweets_StringNullableWithAggregatesFilter
   text: tweets_StringWithAggregatesFilter
   username: tweets_StringWithAggregatesFilter
   verified: tweets_BoolWithAggregatesFilter
@@ -580,10 +635,10 @@ input tweets_tweetsScalarWhereWithAggregatesInput {
 
 type tweets_TweetsGroupByOutputType {
   id: String!
-  avatar: JSON
+  avatar: String
   date: DateTime!
   displayName: String!
-  image: JSON
+  image: String
   text: String!
   username: String!
   verified: Boolean!
@@ -604,13 +659,18 @@ type Query {
 
 input tweets_tweetsCreateInput {
   id: String
-  avatar: JSON
+  avatar: String
   date: DateTime!
   displayName: String!
-  image: JSON
+  image: String
   text: String!
   username: String!
   verified: Boolean!
+}
+
+input tweets_NullableStringFieldUpdateOperationsInput {
+  set: String
+  unset: Boolean
 }
 
 input tweets_DateTimeFieldUpdateOperationsInput {
@@ -626,10 +686,10 @@ input tweets_BoolFieldUpdateOperationsInput {
 }
 
 input tweets_tweetsUpdateInput {
-  avatar: JSON
+  avatar: tweets_NullableStringFieldUpdateOperationsInput
   date: tweets_DateTimeFieldUpdateOperationsInput
   displayName: tweets_StringFieldUpdateOperationsInput
-  image: JSON
+  image: tweets_NullableStringFieldUpdateOperationsInput
   text: tweets_StringFieldUpdateOperationsInput
   username: tweets_StringFieldUpdateOperationsInput
   verified: tweets_BoolFieldUpdateOperationsInput
@@ -637,10 +697,10 @@ input tweets_tweetsUpdateInput {
 
 input tweets_tweetsCreateManyInput {
   id: String
-  avatar: JSON
+  avatar: String
   date: DateTime!
   displayName: String!
-  image: JSON
+  image: String
   text: String!
   username: String!
   verified: Boolean!
@@ -652,10 +712,10 @@ type tweets_AffectedRowsOutput {
 }
 
 input tweets_tweetsUpdateManyMutationInput {
-  avatar: JSON
+  avatar: tweets_NullableStringFieldUpdateOperationsInput
   date: tweets_DateTimeFieldUpdateOperationsInput
   displayName: tweets_StringFieldUpdateOperationsInput
-  image: JSON
+  image: tweets_NullableStringFieldUpdateOperationsInput
   text: tweets_StringFieldUpdateOperationsInput
   username: tweets_StringFieldUpdateOperationsInput
   verified: tweets_BoolFieldUpdateOperationsInput

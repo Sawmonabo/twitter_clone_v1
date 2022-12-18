@@ -6,10 +6,10 @@ export interface AddTweetInput {
 
 export interface tweets_tweetsCreateInput {
 	id?: string;
-	avatar?: JSONValue;
+	avatar?: string;
 	date: string;
 	displayName: string;
-	image?: JSONValue;
+	image?: string;
 	text: string;
 	username: string;
 	verified: boolean;
@@ -49,8 +49,8 @@ export interface AddTweetResponseData {
 		username: string;
 		verified: boolean;
 		text: string;
-		avatar?: JSONValue;
-		image?: JSONValue;
+		avatar?: string;
+		image?: string;
 		date: string;
 	};
 }
@@ -62,8 +62,8 @@ export interface TweetsResponseData {
 		username: string;
 		verified: boolean;
 		text: string;
-		avatar?: JSONValue;
-		image?: JSONValue;
+		avatar?: string;
+		image?: string;
 		date: string;
 	}[];
 }

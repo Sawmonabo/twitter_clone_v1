@@ -22,7 +22,7 @@ function Widgets() {
         <TwitterTimelineEmbed
           sourceType="profile"
           screenName="wundergraphcom"
-          options={{ height: 400 }}
+          options={{ height: 450 }}
         />
         <TwitterFollowButton
           screenName={'wundergraphcom'}

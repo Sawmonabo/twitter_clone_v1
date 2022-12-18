@@ -85,8 +85,26 @@ interface TargetTypes {
 		| "verified"
 		| "_all"
 		| "_join";
-	tweets_TweetsMinAggregateOutputType: "id" | "date" | "displayName" | "text" | "username" | "verified" | "_join";
-	tweets_TweetsMaxAggregateOutputType: "id" | "date" | "displayName" | "text" | "username" | "verified" | "_join";
+	tweets_TweetsMinAggregateOutputType:
+		| "id"
+		| "avatar"
+		| "date"
+		| "displayName"
+		| "image"
+		| "text"
+		| "username"
+		| "verified"
+		| "_join";
+	tweets_TweetsMaxAggregateOutputType:
+		| "id"
+		| "avatar"
+		| "date"
+		| "displayName"
+		| "image"
+		| "text"
+		| "username"
+		| "verified"
+		| "_join";
 	tweets_AggregateTweets: "_count" | "_min" | "_max" | "_join";
 	tweets_TweetsGroupByOutputType:
 		| "id"

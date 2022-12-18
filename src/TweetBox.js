@@ -1,10 +1,8 @@
 import { Avatar, Button } from "@mui/material";
 import React, { useState } from "react";
-import "./TweetBox.css";
-// import TwiiterLogo from './twitter_clone_logo.svg';
 import { useMutation } from './lib/wundergraph';
 import {userContext} from './user';
-
+import "./TweetBox.css";
 
 function TweetBox() {
   const [tweetMessage, setTweetMessage] = useState("");
@@ -19,7 +17,7 @@ function TweetBox() {
 
   const sendTweet = e => {
     e.preventDefault();
-    
+
     if (tweetMessage != "")
     {
       trigger({ data : {
@@ -27,8 +25,8 @@ function TweetBox() {
           username: user.firstName + "_" + user.lastName,
           verified: true,
           text: tweetMessage,
-          avatar: null,
-          image: null,
+          avatar: user.avatarUrl,
+          image: tweetImage,
           date: new Date()
         }
       });
@@ -41,7 +39,7 @@ function TweetBox() {
   return (
     <div className="tweetBox">
       <div className="tweetBox__input">
-        <Avatar src="./twitter_clone_logo.svg" />
+        <Avatar src={user.avatarUrl} />
         <input
           value={tweetMessage}
           onChange={(textFieldContents) => setTweetMessage(textFieldContents.target.value)}

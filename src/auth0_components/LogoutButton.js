@@ -1,14 +1,14 @@
-import { useAuth0 } from '@auth0/auth0-react';
+import { useAuth } from "../lib/wundergraph";
+import { Button } from "@mui/material";
+import './LogoutButton.css'
 
 const LogoutButton = () => {
-    const { logout, isAuthenticated } = useAuth0();
+    const { logout } = useAuth();
 
     return (
-        isAuthenticated && (
-            <button onClick={() => logout()}>
-                Sign Out
-            </button>
-        )
+        <Button onClick={() => { logout('auth0'); }} variant="contained" className="logout_button" fullWidth>
+            Sign Out
+        </Button>
     )
 }
 
