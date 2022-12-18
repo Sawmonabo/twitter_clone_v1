@@ -9,7 +9,7 @@ const LoginButton = () => {
   console.log(isLoading);
   console.log(error);
   return (
-    <button className="btn btn-primary" onClick={() => { login('auth0'); }}>
+    <button className="login-button-container" onClick={() => { login('auth0'); }}>
         Sign In
     </button>
   )

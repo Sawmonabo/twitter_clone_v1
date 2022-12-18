@@ -6,7 +6,7 @@ export interface AddTweetInput {
 
 export interface tweets_tweetsCreateInput {
 	id?: string;
-	avatar?: string;
+	avatar: string;
 	date: string;
 	displayName: string;
 	image?: string;
@@ -49,7 +49,7 @@ export interface AddTweetResponseData {
 		username: string;
 		verified: boolean;
 		text: string;
-		avatar?: string;
+		avatar: string;
 		image?: string;
 		date: string;
 	};
@@ -62,7 +62,7 @@ export interface TweetsResponseData {
 		username: string;
 		verified: boolean;
 		text: string;
-		avatar?: string;
+		avatar: string;
 		image?: string;
 		date: string;
 	}[];

@@ -6,7 +6,7 @@ const LogoutButton = () => {
     const { logout } = useAuth();
 
     return (
-        <Button onClick={() => { logout('auth0'); }} variant="contained" className="logout_button" fullWidth>
+        <Button onClick={() => { logout({logoutOpenidConnectProvider: true }); }} variant="contained" className="logout_button" fullWidth>
             Sign Out
         </Button>
     )

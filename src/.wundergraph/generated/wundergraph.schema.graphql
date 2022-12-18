@@ -269,6 +269,28 @@ input tweets_StringFilter {
   not: tweets_NestedStringFilter
 }
 
+input tweets_NestedDateTimeFilter {
+  equals: DateTime
+  in: [DateTime]
+  notIn: [DateTime]
+  lt: DateTime
+  lte: DateTime
+  gt: DateTime
+  gte: DateTime
+  not: tweets_NestedDateTimeFilter
+}
+
+input tweets_DateTimeFilter {
+  equals: DateTime
+  in: [DateTime]
+  notIn: [DateTime]
+  lt: DateTime
+  lte: DateTime
+  gt: DateTime
+  gte: DateTime
+  not: tweets_NestedDateTimeFilter
+}
+
 input tweets_NestedStringNullableFilter {
   equals: String
   in: [String]
@@ -300,28 +322,6 @@ input tweets_StringNullableFilter {
   isSet: Boolean
 }
 
-input tweets_NestedDateTimeFilter {
-  equals: DateTime
-  in: [DateTime]
-  notIn: [DateTime]
-  lt: DateTime
-  lte: DateTime
-  gt: DateTime
-  gte: DateTime
-  not: tweets_NestedDateTimeFilter
-}
-
-input tweets_DateTimeFilter {
-  equals: DateTime
-  in: [DateTime]
-  notIn: [DateTime]
-  lt: DateTime
-  lte: DateTime
-  gt: DateTime
-  gte: DateTime
-  not: tweets_NestedDateTimeFilter
-}
-
 input tweets_NestedBoolFilter {
   equals: Boolean
   not: tweets_NestedBoolFilter
@@ -337,7 +337,7 @@ input tweets_tweetsWhereInput {
   OR: [tweets_tweetsWhereInput]
   NOT: tweets_tweetsWhereInput
   id: tweets_StringFilter
-  avatar: tweets_StringNullableFilter
+  avatar: tweets_StringFilter
   date: tweets_DateTimeFilter
   displayName: tweets_StringFilter
   image: tweets_StringNullableFilter
@@ -379,7 +379,7 @@ enum tweets_TweetsScalarFieldEnum {
 
 type tweets_tweets {
   id: String!
-  avatar: String
+  avatar: String!
   date: DateTime!
   displayName: String!
   image: String
@@ -526,6 +526,34 @@ input tweets_StringWithAggregatesFilter {
   _max: tweets_NestedStringFilter
 }
 
+input tweets_NestedDateTimeWithAggregatesFilter {
+  equals: DateTime
+  in: [DateTime]
+  notIn: [DateTime]
+  lt: DateTime
+  lte: DateTime
+  gt: DateTime
+  gte: DateTime
+  not: tweets_NestedDateTimeWithAggregatesFilter
+  _count: tweets_NestedIntFilter
+  _min: tweets_NestedDateTimeFilter
+  _max: tweets_NestedDateTimeFilter
+}
+
+input tweets_DateTimeWithAggregatesFilter {
+  equals: DateTime
+  in: [DateTime]
+  notIn: [DateTime]
+  lt: DateTime
+  lte: DateTime
+  gt: DateTime
+  gte: DateTime
+  not: tweets_NestedDateTimeWithAggregatesFilter
+  _count: tweets_NestedIntFilter
+  _min: tweets_NestedDateTimeFilter
+  _max: tweets_NestedDateTimeFilter
+}
+
 input tweets_NestedIntNullableFilter {
   equals: Int
   in: [Int]
@@ -575,34 +603,6 @@ input tweets_StringNullableWithAggregatesFilter {
   isSet: Boolean
 }
 
-input tweets_NestedDateTimeWithAggregatesFilter {
-  equals: DateTime
-  in: [DateTime]
-  notIn: [DateTime]
-  lt: DateTime
-  lte: DateTime
-  gt: DateTime
-  gte: DateTime
-  not: tweets_NestedDateTimeWithAggregatesFilter
-  _count: tweets_NestedIntFilter
-  _min: tweets_NestedDateTimeFilter
-  _max: tweets_NestedDateTimeFilter
-}
-
-input tweets_DateTimeWithAggregatesFilter {
-  equals: DateTime
-  in: [DateTime]
-  notIn: [DateTime]
-  lt: DateTime
-  lte: DateTime
-  gt: DateTime
-  gte: DateTime
-  not: tweets_NestedDateTimeWithAggregatesFilter
-  _count: tweets_NestedIntFilter
-  _min: tweets_NestedDateTimeFilter
-  _max: tweets_NestedDateTimeFilter
-}
-
 input tweets_NestedBoolWithAggregatesFilter {
   equals: Boolean
   not: tweets_NestedBoolWithAggregatesFilter
@@ -624,7 +624,7 @@ input tweets_tweetsScalarWhereWithAggregatesInput {
   OR: [tweets_tweetsScalarWhereWithAggregatesInput]
   NOT: tweets_tweetsScalarWhereWithAggregatesInput
   id: tweets_StringWithAggregatesFilter
-  avatar: tweets_StringNullableWithAggregatesFilter
+  avatar: tweets_StringWithAggregatesFilter
   date: tweets_DateTimeWithAggregatesFilter
   displayName: tweets_StringWithAggregatesFilter
   image: tweets_StringNullableWithAggregatesFilter
@@ -635,7 +635,7 @@ input tweets_tweetsScalarWhereWithAggregatesInput {
 
 type tweets_TweetsGroupByOutputType {
   id: String!
-  avatar: String
+  avatar: String!
   date: DateTime!
   displayName: String!
   image: String
@@ -659,7 +659,7 @@ type Query {
 
 input tweets_tweetsCreateInput {
   id: String
-  avatar: String
+  avatar: String!
   date: DateTime!
   displayName: String!
   image: String
@@ -668,17 +668,17 @@ input tweets_tweetsCreateInput {
   verified: Boolean!
 }
 
-input tweets_NullableStringFieldUpdateOperationsInput {
+input tweets_StringFieldUpdateOperationsInput {
   set: String
-  unset: Boolean
 }
 
 input tweets_DateTimeFieldUpdateOperationsInput {
   set: DateTime
 }
 
-input tweets_StringFieldUpdateOperationsInput {
+input tweets_NullableStringFieldUpdateOperationsInput {
   set: String
+  unset: Boolean
 }
 
 input tweets_BoolFieldUpdateOperationsInput {
@@ -686,7 +686,7 @@ input tweets_BoolFieldUpdateOperationsInput {
 }
 
 input tweets_tweetsUpdateInput {
-  avatar: tweets_NullableStringFieldUpdateOperationsInput
+  avatar: tweets_StringFieldUpdateOperationsInput
   date: tweets_DateTimeFieldUpdateOperationsInput
   displayName: tweets_StringFieldUpdateOperationsInput
   image: tweets_NullableStringFieldUpdateOperationsInput
@@ -697,7 +697,7 @@ input tweets_tweetsUpdateInput {
 
 input tweets_tweetsCreateManyInput {
   id: String
-  avatar: String
+  avatar: String!
   date: DateTime!
   displayName: String!
   image: String
@@ -712,7 +712,7 @@ type tweets_AffectedRowsOutput {
 }
 
 input tweets_tweetsUpdateManyMutationInput {
-  avatar: tweets_NullableStringFieldUpdateOperationsInput
+  avatar: tweets_StringFieldUpdateOperationsInput
   date: tweets_DateTimeFieldUpdateOperationsInput
   displayName: tweets_StringFieldUpdateOperationsInput
   image: tweets_NullableStringFieldUpdateOperationsInput
