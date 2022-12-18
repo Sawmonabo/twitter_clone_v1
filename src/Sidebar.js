@@ -1,5 +1,4 @@
 import React from "react";
-import "./Sidebar.css";
 import SidebarOption from "./SidebarOption";
 import HomeIcon from "@mui/icons-material/Home";
 import SearchIcon from "@mui/icons-material/Search";
@@ -11,6 +10,7 @@ import PermIdentityIcon from "@mui/icons-material/PermIdentity";
 import MoreHorizIcon from "@mui/icons-material/MoreHoriz";
 import TwitterIcon from "@mui/icons-material/Twitter";
 import LogoutButton from "./auth0_components/LogoutButton";
+import "./Sidebar.css";
 
 function Sidebar() {
   return (

@@ -4,14 +4,10 @@ import './LoginButton.css'
 
 const LoginButton = () => {
   const { login } = useAuth();
-  const { user, isLoading, error } = useUser();
-
-  console.log(user);
-  console.log(isLoading);
-  console.log(error);
+  
   return (
     <Button className="login-button-container" onClick={() => { login('auth0'); }}>
-        Sign In
+        Continue
     </Button>
   )
 }
