@@ -79,12 +79,9 @@ var tweets = import_sdk3.introspect.mongodb({
   codeGenerators: [
     {
       templates: [
-        ...import_sdk3.templates.typescript.all,
-        import_sdk3.templates.typescript.operations,
-        import_sdk3.templates.typescript.linkBuilder,
-        import_sdk3.templates.typescript.client
+        ...import_sdk3.templates.typescript.all
       ],
-      path: "../components/generated"
+      path: "../src/components/generated"
     }
   ],
   cors: {
