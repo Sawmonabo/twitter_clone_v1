@@ -1,6 +1,6 @@
 import { Avatar, Button } from "@mui/material";
 import React, { useState } from "react";
-import { useMutation } from './lib/wundergraph';
+import { useMutation, useUser } from './lib/wundergraph';
 import {userContext} from './auth0_components/User';
 import "./TweetBox.css";
 
@@ -13,10 +13,13 @@ function TweetBox() {
       requiresAuthentication: false
   });
 
-  const user = React.useContext(userContext);  
+  // const user = React.useContext(userContext);  
+  const user = useUser().data;
 
   const sendTweet = e => {
     e.preventDefault();
+    console.log(user);
+    // console.log(user_two.data);
 
     if (tweetMessage != "")
     {
@@ -42,7 +45,7 @@ function TweetBox() {
         <Avatar src={user.avatarUrl} />
         <input
           value={tweetMessage}
-          onChange={(textFieldContents) => setTweetMessage(textFieldContents.target.value)}
+          onChange={(e) => setTweetMessage(e.target.value)}
           placeholder="What's happening?"
           type="text"
         />
