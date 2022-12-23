@@ -13,7 +13,7 @@ function TweetBox() {
       requiresAuthentication: false
   });
 
-  const user = React.useContext(userContext);  
+  const user = useUser().data;
 
   const sendTweet = e => {
     e.preventDefault();
