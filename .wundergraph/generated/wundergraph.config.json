@@ -2380,13 +2380,6 @@
           "environmentVariableName": "",
           "placeholderVariableName": "",
           "staticVariableContent": "http://localhost:3000"
-        },
-        {
-          "kind": 1,
-          "staticVariableContent": "",
-          "placeholderVariableName": "",
-          "environmentVariableDefaultValue": "",
-          "environmentVariableName": "WG_ALLOWED_ORIGIN"
         }
       ]
     },

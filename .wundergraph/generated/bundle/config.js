@@ -88,7 +88,7 @@ var tweets = import_sdk3.introspect.mongodb({
     ...import_sdk3.cors.allowAll,
     allowedOrigins: process.env.NODE_ENV === "production" ? [
       "http://localhost:3000"
-    ] : ["http://localhost:3000", new import_sdk3.EnvironmentVariable("WG_ALLOWED_ORIGIN")]
+    ] : ["http://localhost:3000"]
   },
   dotGraphQLConfig: {
     hasDotWunderGraphDirectory: false
