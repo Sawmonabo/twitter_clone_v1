@@ -20,7 +20,7 @@
           "staleWhileRevalidate": 0
         },
         "authenticationConfig": {
-          "authRequired": false
+          "authRequired": true
         },
         "authorizationConfig": {
           "claims": [],
@@ -64,7 +64,7 @@
           "staleWhileRevalidate": 60
         },
         "authenticationConfig": {
-          "authRequired": false
+          "authRequired": true
         },
         "authorizationConfig": {
           "claims": [],

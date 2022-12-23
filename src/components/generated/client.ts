@@ -36,17 +36,17 @@ export interface AuthProvider {
 }
 
 export const defaultClientConfig: ClientConfig = {
-	applicationHash: "344fc39d",
+	applicationHash: "99d63e47",
 	baseURL: "http://localhost:9991",
 	sdkVersion: "0.126.0",
 };
 
 export const operationMetadata: OperationMetadata = {
 	AddTweet: {
-		requiresAuthentication: false,
+		requiresAuthentication: true,
 	},
 	Tweets: {
-		requiresAuthentication: false,
+		requiresAuthentication: true,
 	},
 };
 
@@ -100,7 +100,7 @@ export type Queries = {
 	Tweets: {
 		input?: undefined;
 		data: TweetsResponseData;
-		requiresAuthentication: false;
+		requiresAuthentication: true;
 		liveQuery: boolean;
 	};
 };
@@ -109,7 +109,7 @@ export type Mutations = {
 	AddTweet: {
 		input: AddTweetInput;
 		data: AddTweetResponseData;
-		requiresAuthentication: false;
+		requiresAuthentication: true;
 	};
 };
 
@@ -120,7 +120,7 @@ export type LiveQueries = {
 		input?: undefined;
 		data: TweetsResponseData;
 		liveQuery: true;
-		requiresAuthentication: false;
+		requiresAuthentication: true;
 	};
 };
 

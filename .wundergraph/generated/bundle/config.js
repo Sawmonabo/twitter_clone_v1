@@ -36,7 +36,7 @@ var wundergraph_operations_default = (0, import_sdk2.configureWunderGraphOperati
   operations: {
     defaultConfig: {
       authentication: {
-        required: false
+        required: true
       }
     },
     queries: (config) => ({
