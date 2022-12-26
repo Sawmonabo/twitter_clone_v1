@@ -36,7 +36,7 @@ export interface AuthProvider {
 }
 
 export const defaultClientConfig: ClientConfig = {
-	applicationHash: "2ff16533",
+	applicationHash: "3283ba35",
 	baseURL: "http://localhost:9991",
 	sdkVersion: "0.126.0",
 };

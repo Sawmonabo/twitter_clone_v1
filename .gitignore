@@ -41,4 +41,7 @@ yarn-error.log*
 .vercel
 
 # Cache
-.wundergraph/cache/introspection
+.wundergraph/cache
+
+# WunderGraph Generated 
+.wundergraph/generated
