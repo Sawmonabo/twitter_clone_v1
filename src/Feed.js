@@ -25,6 +25,7 @@ function Feed() {
           text={tweet.text}
           avatar={tweet.avatar}
           image={tweet.image}
+          key={tweet.id}
         />
       ))}
     </div>

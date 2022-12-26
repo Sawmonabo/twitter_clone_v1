@@ -1,5 +1,4 @@
 import React from "react";
-import "./Sidebar.css";
 import SidebarOption from "./SidebarOption";
 import HomeIcon from "@mui/icons-material/Home";
 import SearchIcon from "@mui/icons-material/Search";
@@ -9,21 +8,14 @@ import BookmarkBorderIcon from "@mui/icons-material/BookmarkBorder";
 import ListAltIcon from "@mui/icons-material/ListAlt";
 import PermIdentityIcon from "@mui/icons-material/PermIdentity";
 import MoreHorizIcon from "@mui/icons-material/MoreHoriz";
-import { Button } from "@mui/material";
-import { Icon } from "@mui/material";
-// import TwitterIcon from "@mui/icons-material/Twitter";
-import TwiiterLogo from './twitter_clone_logo.svg'
-
-export const TwitterIcon = () => (
-    <Icon>
-        <img src={TwiiterLogo} alt="" height={30} width={30}/>
-    </Icon>
-)
+import TwitterIcon from "@mui/icons-material/Twitter";
+import LogoutButton from "./auth0_components/LogoutButton";
+import "./Sidebar.css";
 
 function Sidebar() {
   return (
     <div className="sidebar">
-      <TwitterIcon Icon="sidebar__twitterIcon" text="Logo" />
+      <TwitterIcon className="sidebar__twitterIcon" />
       <SidebarOption Icon={HomeIcon} text="Home" active={true} />
       <SidebarOption Icon={SearchIcon} text="Explore" />
       <SidebarOption Icon={NotificationsNoneIcon} text="Notifications" />
@@ -32,10 +24,7 @@ function Sidebar() {
       <SidebarOption Icon={ListAltIcon} text="Lists" />
       <SidebarOption Icon={PermIdentityIcon} text="Profile" />
       <SidebarOption Icon={MoreHorizIcon} text="More" />
-
-      <Button variant="outlined" className="sidebar__tweet" fullWidth>
-        Tweet
-      </Button>
+      <LogoutButton />
     </div>
   );
 }

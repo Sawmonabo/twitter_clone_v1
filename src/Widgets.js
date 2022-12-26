@@ -4,6 +4,7 @@ import {
   TwitterTimelineEmbed,
   TwitterShareButton,
   TwitterTweetEmbed,
+  TwitterFollowButton,
 } from "react-twitter-embed";
 import "./Widgets.css";
 
@@ -17,15 +18,18 @@ function Widgets() {
 
       <div className="widgets__widgetContainer">
         <h2>What's happening</h2>
-        <TwitterTweetEmbed tweetId={"1307046632517664771"} />
+        <TwitterTweetEmbed tweetId={"1600829337686913025"} />
         <TwitterTimelineEmbed
           sourceType="profile"
-          screenName="atharvabrand"
-          options={{ height: 400 }}
+          screenName="wundergraphcom"
+          options={{ height: 450 }}
+        />
+        <TwitterFollowButton
+          screenName={'wundergraphcom'}
         />
         <TwitterShareButton
-          url={"https://atharvadeosthale.com"}
-          options={{ text: "React Developer" }}
+          url={"https://wundergraph.com/"}
+          options={{ text: "API Developer Platform" }}
         />
       </div>
     </div>

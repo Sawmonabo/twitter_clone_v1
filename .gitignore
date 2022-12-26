@@ -39,3 +39,9 @@ yarn-error.log*
 
 # vercel
 .vercel
+
+# Cache
+.wundergraph/cache
+
+# WunderGraph Generated 
+.wundergraph/generated

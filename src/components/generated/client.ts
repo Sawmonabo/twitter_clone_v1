@@ -1,6 +1,7 @@
 import {
 	Client,
 	ClientConfig,
+	CreateClientConfig,
 	User,
 	UploadRequestOptions,
 	OperationMetadata,
@@ -21,26 +22,33 @@ import type {
 export type UserRole = "admin" | "user";
 
 export const WUNDERGRAPH_S3_ENABLED = false;
-export const WUNDERGRAPH_AUTH_ENABLED = false;
+export const WUNDERGRAPH_AUTH_ENABLED = true;
 
 export type UploadConfig = UploadRequestOptions<never>;
 
+export enum AuthProviderId {
+	"auth0" = "auth0",
+}
+
+export interface AuthProvider {
+	id: AuthProviderId;
+	login: (redirectURI?: string) => void;
+}
+
 export const defaultClientConfig: ClientConfig = {
-	applicationHash: "58a428f1",
+	applicationHash: "3283ba35",
 	baseURL: "http://localhost:9991",
-	sdkVersion: "0.123.2",
+	sdkVersion: "0.126.0",
 };
 
 export const operationMetadata: OperationMetadata = {
 	AddTweet: {
-		requiresAuthentication: false,
+		requiresAuthentication: true,
 	},
 	Tweets: {
-		requiresAuthentication: false,
+		requiresAuthentication: true,
 	},
 };
-
-type PrivateConfigProperties = "applicationHash" | "sdkVersion" | "operationMetadata";
 
 export class WunderGraphClient extends Client {
 	query<
@@ -75,12 +83,12 @@ export class WunderGraphClient extends Client {
 	public login(authProviderID: Operations["authProvider"], redirectURI?: string) {
 		return super.login(authProviderID, redirectURI);
 	}
-	public async fetchUser<TUser extends User = User<UserRole>>(options: FetchUserRequestOptions) {
+	public async fetchUser<TUser extends User = User<UserRole>>(options?: FetchUserRequestOptions) {
 		return super.fetchUser<TUser>(options);
 	}
 }
 
-export const createClient = (config?: Partial<Omit<ClientConfig, PrivateConfigProperties>>) => {
+export const createClient = (config?: CreateClientConfig) => {
 	return new WunderGraphClient({
 		...defaultClientConfig,
 		...config,
@@ -92,7 +100,7 @@ export type Queries = {
 	Tweets: {
 		input?: undefined;
 		data: TweetsResponseData;
-		requiresAuthentication: false;
+		requiresAuthentication: true;
 		liveQuery: boolean;
 	};
 };
@@ -101,7 +109,7 @@ export type Mutations = {
 	AddTweet: {
 		input: AddTweetInput;
 		data: AddTweetResponseData;
-		requiresAuthentication: false;
+		requiresAuthentication: true;
 	};
 };
 
@@ -112,8 +120,9 @@ export type LiveQueries = {
 		input?: undefined;
 		data: TweetsResponseData;
 		liveQuery: true;
-		requiresAuthentication: false;
+		requiresAuthentication: true;
 	};
 };
 
-export interface Operations extends OperationsDefinition<Queries, Mutations, Subscriptions, UserRole> {}
+export interface Operations
+	extends OperationsDefinition<Queries, Mutations, Subscriptions, UserRole, keyof typeof AuthProviderId> {}

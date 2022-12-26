@@ -1,10 +1,7 @@
 import { Avatar, Button } from "@mui/material";
 import React, { useState } from "react";
-// import db from "./firebase";
+import { useUser, useMutation } from './lib/wundergraph';
 import "./TweetBox.css";
-// import TwiiterLogo from './twitter_clone_logo.svg';
-import { useMutation } from './lib/wundergraph';
-
 
 function TweetBox() {
   const [tweetMessage, setTweetMessage] = useState("");
@@ -15,19 +12,24 @@ function TweetBox() {
       requiresAuthentication: false
   });
 
-  const sendTweet = () => {
-    console.log(tweetMessage);
-    trigger({ data : {
-        displayName: "Jay Patel",
-        username: "happystark",
-        verified: true,
-        text: tweetMessage,
-        avatar: null,
-        image: null,
-        date: "2099-03-01T08:00:00Z"
-      }
-    });
-    // e.preventDefault();
+  const user = useUser().data;
+
+  const sendTweet = e => {
+    e.preventDefault();
+
+    if (tweetMessage != "")
+    {
+      trigger({ data : {
+          displayName: user.firstName,
+          username: user.firstName + "_" + user.lastName,
+          verified: true,
+          text: tweetMessage,
+          avatar: user.avatarUrl,
+          image: tweetImage,
+          date: new Date()
+        }
+      });
+    }
 
     setTweetMessage("");
     setTweetImage("");
@@ -36,7 +38,7 @@ function TweetBox() {
   return (
     <div className="tweetBox">
       <div className="tweetBox__input">
-        <Avatar src="./twitter_clone_logo.svg" />
+        <Avatar src={user.avatarUrl} referrerPolicy="no-referrer" />
         <input
           value={tweetMessage}
           onChange={(textFieldContents) => setTweetMessage(textFieldContents.target.value)}
