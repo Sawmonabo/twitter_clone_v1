@@ -39,7 +39,7 @@ function TweetBox() {
   return (
     <div className="tweetBox">
       <div className="tweetBox__input">
-        <Avatar src={user.avatarUrl} />
+        <Avatar src={user.avatarUrl} referrerPolicy="no-referrer" />
         <input
           value={tweetMessage}
           onChange={(textFieldContents) => setTweetMessage(textFieldContents.target.value)}

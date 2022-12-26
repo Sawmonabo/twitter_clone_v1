@@ -103,7 +103,7 @@ var tweets = import_sdk3.introspect.mongodb({
           clientSecret: new import_sdk3.EnvironmentVariable("AUTH0_CLIENT_SECRET")
         })
       ],
-      authorizedRedirectUris: ["http://localhost:3000/"]
+      authorizedRedirectUris: ["http://localhost:3000/", "http://127.0.0.1:3000/"]
     }
   },
   security: {
