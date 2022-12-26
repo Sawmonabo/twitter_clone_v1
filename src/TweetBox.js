@@ -9,7 +9,7 @@ function TweetBox() {
 
   const { trigger } = useMutation({
       operationName: 'AddTweet',
-      requiresAuthentication: false
+      requiresAuthentication: true
   });
 
   const user = useUser().data;

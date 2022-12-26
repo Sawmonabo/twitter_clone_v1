@@ -8,7 +8,7 @@ function Feed() {
   const tweets = useQuery({
     operationName: 'Tweets',
     liveQuery: true,
-		requiresAuthentication: false,
+		requiresAuthentication: true,
   });
 
   return (
