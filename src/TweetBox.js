@@ -1,7 +1,6 @@
 import { Avatar, Button } from "@mui/material";
 import React, { useState } from "react";
 import { useUser, useMutation } from './lib/wundergraph';
-import {userContext} from './auth0_components/User';
 import "./TweetBox.css";
 
 function TweetBox() {
