@@ -17,6 +17,6 @@ module.exports = {
     'react'
   ],
   rules: {
-    'semi': [2, 'always']
+    semi: [2, 'always']
   }
-}
+};

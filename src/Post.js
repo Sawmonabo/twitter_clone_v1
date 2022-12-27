@@ -1,4 +1,5 @@
 import { Avatar } from '@mui/material';
+import PropTypes from 'prop-types';
 import {
   ChatBubbleOutline,
   FavoriteBorder,
@@ -8,6 +9,15 @@ import {
 } from '@mui/icons-material';
 import React from 'react';
 import './Post.css';
+
+Post.propTypes = {
+  displayName: PropTypes.string,
+  username: PropTypes.string,
+  verified: PropTypes.bool,
+  text: PropTypes.string,
+  image: PropTypes.string,
+  avatar: PropTypes.string
+};
 
 function Post ({ displayName, username, verified, text, image, avatar }) {
   return (

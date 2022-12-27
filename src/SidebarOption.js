@@ -1,5 +1,12 @@
 import React from 'react';
 import './SidebarOption.css';
+import PropTypes from 'prop-types';
+
+SidebarOption.propTypes = {
+  text: PropTypes.string,
+  Icon: PropTypes.object,
+  active: PropTypes.bool
+};
 
 function SidebarOption ({ text, Icon, active }) {
   return (
