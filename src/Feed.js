@@ -1,19 +1,19 @@
-import React, { useEffect, useState } from "react";
-import "./Feed.css";
-import Post from "./Post";
-import TweetBox from "./TweetBox";
+import React from 'react';
+import './Feed.css';
+import Post from './Post';
+import TweetBox from './TweetBox';
 import { useQuery } from './lib/wundergraph';
 
-function Feed() {
+function Feed () {
   const tweets = useQuery({
     operationName: 'Tweets',
     liveQuery: true,
-		requiresAuthentication: false,
+    requiresAuthentication: true
   });
 
   return (
-    <div className="feed">
-      <div className="feed__header">
+    <div className='feed'>
+      <div className='feed__header'>
         <h2>Home</h2>
       </div>
       <TweetBox/>

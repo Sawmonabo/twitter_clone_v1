@@ -1,9 +1,16 @@
-import React from "react";
-import "./SidebarOption.css";
+import React from 'react';
+import './SidebarOption.css';
+import PropTypes from 'prop-types';
 
-function SidebarOption({ text, Icon, active}) {
+SidebarOption.propTypes = {
+  text: PropTypes.string,
+  Icon: PropTypes.object,
+  active: PropTypes.bool
+};
+
+function SidebarOption ({ text, Icon, active }) {
   return (
-    <div className={`sidebarOption  ${active && "sidebarOption--active"}`}>
+    <div className={`sidebarOption  ${active && 'sidebarOption--active'}`}>
       <Icon />
       <h2>{text}</h2>
     </div>

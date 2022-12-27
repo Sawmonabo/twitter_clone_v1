@@ -1,11 +1,12 @@
-import Feed from "./Feed";
-import Sidebar from "./Sidebar";
-import Widgets from "./Widgets";
+import React from 'react';
+import Feed from './Feed';
+import Sidebar from './Sidebar';
+import Widgets from './Widgets';
 import './Home.css';
 
-function Home({}) {
+function Home () {
   return (
-    <div className="home">
+    <div className='home'>
         <Sidebar />
         <Feed />
         <Widgets />
