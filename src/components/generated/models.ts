@@ -37,8 +37,8 @@ export interface AddTweetResponse {
 	errors?: ReadonlyArray<GraphQLError>;
 }
 
-export interface TweetsResponse {
-	data?: TweetsResponseData;
+export interface GetTweetsResponse {
+	data?: GetTweetsResponseData;
 	errors?: ReadonlyArray<GraphQLError>;
 }
 
@@ -55,7 +55,7 @@ export interface AddTweetResponseData {
 	};
 }
 
-export interface TweetsResponseData {
+export interface GetTweetsResponseData {
 	tweets_findManytweets: {
 		id: string;
 		displayName: string;

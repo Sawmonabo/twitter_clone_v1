@@ -8,7 +8,7 @@ interface Schema {
 		input: JSONSchema7;
 		response: JSONSchema7;
 	};
-	Tweets: {
+	GetTweets: {
 		input: JSONSchema7;
 		response: JSONSchema7;
 	};
@@ -67,7 +67,7 @@ const jsonSchema: Schema = {
 			additionalProperties: false,
 		},
 	},
-	Tweets: {
+	GetTweets: {
 		input: { type: "object", properties: {}, additionalProperties: false, definitions: {} },
 		response: {
 			type: "object",

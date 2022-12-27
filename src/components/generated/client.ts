@@ -15,8 +15,8 @@ import type {
 	AddTweetResponse,
 	AddTweetInput,
 	AddTweetResponseData,
-	TweetsResponse,
-	TweetsResponseData,
+	GetTweetsResponse,
+	GetTweetsResponseData,
 } from "./models";
 
 export type UserRole = "admin" | "user";
@@ -36,7 +36,7 @@ export interface AuthProvider {
 }
 
 export const defaultClientConfig: ClientConfig = {
-	applicationHash: "2ff16533",
+	applicationHash: "76b9abb5",
 	baseURL: "http://localhost:9991",
 	sdkVersion: "0.126.0",
 };
@@ -45,7 +45,7 @@ export const operationMetadata: OperationMetadata = {
 	AddTweet: {
 		requiresAuthentication: true,
 	},
-	Tweets: {
+	GetTweets: {
 		requiresAuthentication: true,
 	},
 };
@@ -97,9 +97,9 @@ export const createClient = (config?: CreateClientConfig) => {
 };
 
 export type Queries = {
-	Tweets: {
+	GetTweets: {
 		input?: undefined;
-		data: TweetsResponseData;
+		data: GetTweetsResponseData;
 		requiresAuthentication: true;
 		liveQuery: boolean;
 	};
@@ -116,9 +116,9 @@ export type Mutations = {
 export type Subscriptions = {};
 
 export type LiveQueries = {
-	Tweets: {
+	GetTweets: {
 		input?: undefined;
-		data: TweetsResponseData;
+		data: GetTweetsResponseData;
 		liveQuery: true;
 		requiresAuthentication: true;
 	};

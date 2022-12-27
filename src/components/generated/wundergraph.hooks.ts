@@ -5,7 +5,7 @@ import {
 	AddTweetInput,
 	InternalAddTweetInput,
 	InjectedAddTweetInput,
-	TweetsResponse,
+	GetTweetsResponse,
 } from "./models";
 import type {
 	BaseRequestContext,
@@ -26,7 +26,7 @@ export type SKIP = "skip";
 // this is semantically equal to throwing an error (500)
 export type CANCEL = "cancel";
 
-export type WUNDERGRAPH_OPERATION = "AddTweet" | "Tweets";
+export type WUNDERGRAPH_OPERATION = "AddTweet" | "GetTweets";
 
 export type DATA_SOURCES = never;
 
@@ -125,13 +125,15 @@ export interface HooksConfig extends HooksConfiguration<Queries, Mutations, Subs
 }
 
 export interface Queries {
-	Tweets?: {
-		mockResolve?: (hook: HookRequest) => Promise<TweetsResponse>;
+	GetTweets?: {
+		mockResolve?: (hook: HookRequest) => Promise<GetTweetsResponse>;
 		preResolve?: (hook: HookRequest) => Promise<void>;
 
-		postResolve?: (hook: HookRequest & HookRequestWithResponse<TweetsResponse>) => Promise<void>;
-		customResolve?: (hook: HookRequest) => Promise<void | TweetsResponse>;
-		mutatingPostResolve?: (hook: HookRequest & HookRequestWithResponse<TweetsResponse>) => Promise<TweetsResponse>;
+		postResolve?: (hook: HookRequest & HookRequestWithResponse<GetTweetsResponse>) => Promise<void>;
+		customResolve?: (hook: HookRequest) => Promise<void | GetTweetsResponse>;
+		mutatingPostResolve?: (
+			hook: HookRequest & HookRequestWithResponse<GetTweetsResponse>
+		) => Promise<GetTweetsResponse>;
 	};
 }
 

@@ -5,8 +5,8 @@ import TweetBox from './TweetBox';
 import { useQuery } from './lib/wundergraph';
 
 function Feed () {
-  const tweets = useQuery({
-    operationName: 'Tweets',
+  const getTweets = useQuery({
+    operationName: 'GetTweets',
     liveQuery: true,
     requiresAuthentication: true
   });
@@ -17,7 +17,7 @@ function Feed () {
         <h2>Home</h2>
       </div>
       <TweetBox/>
-      {tweets.data?.tweets_findManytweets?.map((tweet) => (
+      {getTweets.data?.tweets_findManytweets?.map((tweet) => (
         <Post
           displayName={tweet.displayName}
           username={tweet.username}

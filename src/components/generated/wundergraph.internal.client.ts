@@ -6,11 +6,11 @@ import {
 	AddTweetInput,
 	InternalAddTweetInput,
 	InjectedAddTweetInput,
-	TweetsResponse,
+	GetTweetsResponse,
 } from "./models";
 
 export interface Queries {
-	Tweets: () => Promise<TweetsResponse>;
+	GetTweets: () => Promise<GetTweetsResponse>;
 }
 
 export interface Mutations {

@@ -1,4 +1,4 @@
-query Tweets{
+query GetTweets{
   tweets_findManytweets {
     id
     displayName
